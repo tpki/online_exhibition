@@ -1,0 +1,16 @@
+<div ng-controller="tpk_index" class=''>
+    <div class="col-xs-offset-1  show_image  bg-warning top-30" ng-repeat="image in index_show_image">
+     <div class='row'>
+      <div class='image-name'>{{image.name}}</div>
+      <img ng-src="image/{{image.image}}" width="280px" class='img-thumbnail' height="30px" ng-mousedown="show_detailed()">
+     
+      </div>
+       <div class="row">
+            <div class='col-xs-12'>
+               <ul class='list-inline'>
+                <li ng-repeat="context in image.context" class='col-xs-6 text-center top-20'><p><a ng-href="{{context.url}}">{{context.name}}</a></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

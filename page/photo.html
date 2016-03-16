@@ -1,0 +1,19 @@
+
+<div class='row tpk_body col-xs-12' ng-controller="tpk_photo">
+  
+  
+   <div class='sub-menu' ng-controller="tpk-photo-menu" ng-show='this.show'>
+      <div class='photo-top'>相簿</div>
+       <ul class='line-menu'>
+          <li ng-repeat='submenu in sub_menu' ng-class="{true: 'circle-active', false: ''}[submenu.isActive]"><div class='circle '><div class='circle-w'></div></div><div class='text'><p><a ng-href="?upg={{upg}}&context={{context}}&sub={{submenu.sub}}">{{submenu.name}}</a></p></div></li>
+       </ul>
+   </div>
+    <div class="col-xs-3 col-xs-offset-1 tpk_photo" ng-repeat="photo in photo" ng-mouseenter="text_up()" ng-mouseleave="text_leave()" ng-click="photo_f(photo.sub,photo.image,photo.context)">
+        <div class=' col-xs-12'>
+            <img ng-src="image/{{photo.image}}" class='img-thumbnail' name='image' alt='{{photo.name}}'>
+        </div>
+        <div class="photo-text col-xs-10 {{this.active}}" ><p class='text-center'>{{photo.name}}</p></div>
+    </div>
+</div>
+
+

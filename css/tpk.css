@@ -1,0 +1,208 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    left: 0;
+    position: relative;  
+    background-color:#4B3C29;
+}
+
+.index_show_image{
+    max-width: 100%;
+
+}
+.top-30{
+    margin-top:30px;
+}
+#tpk_map{
+/*
+    padding-top:5px;
+    padding-bottom:5px;
+
+    background-color: beige;*/
+    background-color: #FFF;
+}
+#tpk_public{
+    
+    min-height:700px;
+    padding-top: 40px;
+}
+.tpk_body{
+    background-color: #dad2c1;
+    padding-bottom: 50px;
+    position: relative;
+    z-index: 0;
+}
+#tpk_banner{
+    height:200px; 
+    background-color:darkgray;
+}
+.show_image{
+    width:250px;
+    float:left;
+    min-height:300px;
+
+}
+.top-20{
+    padding-top:5px;
+}
+
+ul.line-menu:after{
+    
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 4px;
+    border-radius: 2px;
+    display: block;
+    z-index: 0;
+}
+ul.line-menu{
+    list-style: none;
+    margin: 0;
+    padding-top:20px;
+    padding-left:0px;
+    padding-right:0;
+}
+ul.line-menu>li{
+    height: auto;
+    padding:0;
+    z-index:10;
+    position: relative;
+}
+ul.line-menu>li>div{
+    float:left;
+}
+ul.line-menu>li>.circle{
+    width:20px;
+    height:20px;
+    margin-left:20px;
+    background-color:#000;
+    border-radius: 50%;
+}
+
+ul.line-menu>li.circle-active>.circle>.circle-w{
+    width:14px;
+    height:14px;
+    margin-left: 3px;
+    margin-top: 3px;
+    background-color:#FFF;
+    border-radius: 50%;
+    text-align: center;
+    
+
+}
+ul.line-menu>li>.text{
+    width:90px;
+    margin-left:10px;
+
+}
+.sub-menu{
+    position: absolute;
+}
+#tpk_body{
+ min-height: auto;
+
+}
+.photo-text{
+    width:90%;
+    position: absolute;
+    background-color: beige;
+    opacity: 0.8;
+    z-index: 1;
+    bottom:0;
+    height:30px;
+    border-radius: 10%;
+    padding-top:5px;
+    
+}
+.tpk_photo{
+    margin-top:40px;
+
+}
+.photo-text
+{
+transition: height 2s;
+-moz-transition: height 2s;	/* Firefox 4 */
+-webkit-transition: height 2s;	/* Safari 和 Chrome */
+-o-transition: height 2s;	/* Opera */
+}
+.photo_text_up{
+    height:100%;
+}
+.tpk_photo img{
+    min-height:200px;
+    width:100%;
+}
+#copyright{
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color:#FFF;
+}
+.dialog{
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 100;
+    width: 100%;
+    height:100%;
+}
+.dialog-back{
+    position: absolute;
+    top: 0;
+    left:0;
+    background-color: #555;
+    opacity: 0.3;
+    width: 100%;
+    height:100%;
+
+}
+.dialog-show{
+    padding-top:10px;
+    position: fixed;
+    margin-top:10px;
+    margin-left:15%;
+    maring-right:12%;
+    width:70%;
+    min-height:600px;
+    opacity: 1;
+    background-color: #fff;
+    border-radius: 5%;
+}
+.photo-back{
+    background-color:#555;
+}
+.introduction{
+    margin-top:20px;
+padding-left:20px;
+
+}
+.photo-top{
+     z-index: 2;
+    position: relative;
+    background: #fff;
+    border: 2px solid #000;
+    width:100px;
+    padding-left:30px;
+    padding-top:20px;
+    padding-bottom:20px;
+    border-radius: 5%
+}
+.image-name{
+    position: absolute;
+    z-index: 20;
+    border-radius: 50%;
+    padding-top: 23px;
+    opacity: 0.7;
+    font-size: 24px;
+    margin-top: 19px;
+    margin-left: 5px;
+    width: 162px;
+    text-align: center;
+}
+.content-public p{
+    text-indent: 20px;
+
+}
