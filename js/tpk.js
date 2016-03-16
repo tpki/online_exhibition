@@ -5,8 +5,10 @@ var tpk_url=(usearch.upg!="")?usearch.upg:"index";
 var index_show_img;
 
 tpk.controller("tpk_all",function ($scope,$http){
+    
     $("#tpk_show_modal").hide();
     $http.get("data/menu.csv").success(function (data){
+        $(".se-pre-con").hide();
         var t_menu=get_csv(data,["name","upg","func"]);
         var a=[];
         for(t in t_menu){
@@ -19,13 +21,12 @@ tpk.controller("tpk_all",function ($scope,$http){
         }
          $scope.tpk_menu=a;
     })
-    
     $http.get("data/menu.csv").success(function (data){
         var csv=get_csv(data,["name","upg","func","image",'show']);
             var a=[];
         for (i in csv){
             var ts=csv[i];
-            console.log(ts)
+            //console.log(ts)
             if(ts.show!='N'){
             var tmp={"name":ts.name,image:ts.image,context:[]};
             $.ajax({
@@ -47,16 +48,9 @@ tpk.controller("tpk_all",function ($scope,$http){
             a.push(tmp);
         }
                }
-        console.log(a);
           $scope.index_show_image=a;
     })
-//  =
-//        [{name:"try1",image:"page2.png",context:[{text:"歷史回顧",url:"?upg=histroy"},{text:"歷史足跡",url:"?upg=histroy_tread"}]},
-//         {name:"try1",image:"page2.png",context:[{text:"歷史回顧",url:"?upg=histroy"}]},
-//         {name:"try1",image:"page2.png",context:[{text:"歷史回顧",url:"?upg=histroy"}]},
-//         {name:"try1",image:"page2.png",context:[{text:"歷史回顧",url:"?upg=histroy"}]},
-//         {name:"try1",image:"page2.png",context:[{text:"歷史回顧",url:"?upg=histroy"}]},
-//         {name:"try1",image:"page2.png",context:[{text:"歷史回顧",url:"?upg=histroy"}]}];
+
     $scope.menu="sd";
     $scope.tpk_show=tpk_border+tpk_url+".html";
 });
@@ -131,22 +125,48 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
 // http get request to read CSV file content
     var photo=[];
     var t=false;
-    if(usearch['sub']==undefined||usearch['sub']==""){
-		$http.get("data/"+usearch['context']+".csv",{headers: {
-   'Content-Type': undefined
- },}).success(function (allText){
-            photo=get_csv(allText,["image","name","sub","context"]);
-            $scope.photo=photo;
-            $scope.show=false;
-        });
-    }else{
-        $http.get("data/"+usearch['sub']+".csv").success(function (allText){
-            photo=get_csv(allText,["image","name","sub","context"]);
-            $scope.photo=photo;
-            t=true;
-            $scope.show=true;
-        })
+    var photo_show_num=12;
     
+    if(usearch['sub']==undefined||usearch['sub']==""){
+       $.ajax({
+                url : "data/"+usearch['context']+".csv",
+                cache : false, 
+                async : false,
+                type : "get",
+                dataType : 'html',
+                success : function (result){
+                   photo=get_csv(result,["image","name","sub","context"]);
+                   $scope.photo=photo;
+                   $scope.show=false;
+                }
+            });
+    }else{
+        $.ajax({
+                url : "data/"+usearch['sub']+".csv",
+                cache : false, 
+                async : false,
+                type : "get",
+                dataType : 'html',
+                success : function (allText){
+                    photo=get_csv(allText,["image","name","sub","context"]);
+                    for(i in photo){
+                        photo[i]['hide']="none";
+                    }
+                    t=true;
+                    $scope.show=true;
+                }
+            });
+        for(i=0;i<photo_show_num;i++){
+                photo[i]['hide']="block";
+            }
+        
+        $scope.photo=photo;
+        $scope.$watch("photo",function (newvalue,oldvalue){
+            console.log(newvalue+"/"+oldvalue);
+            
+            
+        });
+        
     }
 //    var photo=[
 //        {image:"page2.png",name:"try",context:"try"},
@@ -176,6 +196,21 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
             location.href='?upg='+usearch['upg']+"&context="+usearch['context']+"&sub="+tmp;
         
         }
+    }
+    $scope.load_more=function (){
+       function load_more_show(n){
+            $(".tpk_photo").eq(n).fadeIn(1000,function (){
+                if(n<photo_show_num+12){
+                    load_more_show(n+1)
+                }else{
+                    photo_show_num=photo_show_num+12;           
+                    console.log(photo_show_num);            
+                    }
+            });
+       }
+        load_more_show(photo_show_num);
+        console.log(photo_show_num);
+        
     }
 })
 
