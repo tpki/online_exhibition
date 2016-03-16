@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://localhost/work/AEA/index.html?upg=public&context=together&sub=h -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>tpk</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="./tpk_files/jquery.js"></script>
+    <script src="./tpk_files/angular.js"></script>
+    <script src="./tpk_files/bootstrap.min.js"></script>
+    <script src="./tpk_files/fuc.js"></script>
+    <script src="./tpk_files/active.js"></script>
+    <script src="./tpk_files/tpk.js"></script>
+    <link rel="stylesheet" href="./tpk_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./tpk_files/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./tpk_files/tpk.css">
+</head>
+<body ng-app="tpk" ng-controller="tpk_all" class="ng-scope">
+ <div class="dialog" id="tpk_show_modal" style="display: none;">
+  <div class="dialog-back"></div>
+  <div class="dialog-show photo">
+        <div class="row">
+            <div class="col-xs-12 show_location">
+            </div>
+        </div>
+    </div>
+  </div>
+  
+   <div class="row">
+    <div id="tpk_map">
+      <div class="container">
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!--
+          <div style='height:100%; float:left;'>
+              <img src="image/TPK.png" height="100px;">
+          </div>
+          <div style='padding-top:40px; padding-bottom :10px; padding-left:10px; padding-right:20px; float:left'>法部物行政執行署- 線上檔案展</div>
+-->
+           <ul class="nav navbar-nav">
+               <!-- ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="index.html" class="ng-binding" href="http://localhost/work/AEA/index.html">首頁</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=histroy" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=histroy">史實篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=helmsman" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=helmsman">舵手篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=pick" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=pick">精銳團隊篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=innovation" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=innovation">奠基與創新篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=performance" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=performance">斐然績效篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=fair" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=fair">公平正義篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=vulnerable" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=vulnerable">關懷弱勢篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=together" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together">你我同行篇</a></li><!-- end ngRepeat: menu in tpk_menu --><li ng-repeat="menu in tpk_menu" class="ng-scope"><a ng-href="?upg=public&amp;context=sounded" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=sounded">掌聲響起篇</a></li><!-- end ngRepeat: menu in tpk_menu -->
+           </ul>
+           </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-12 pull-waring" id="tpk_banner">
+        <!-- ngInclude: 'page/banner.html' --><div class="container ng-scope" ng-include="&#39;page/banner.html&#39;"><div class="col-xs-12 ng-scope" style="height:100%;">
+    <img src="./tpk_files/banner.jpg" height="100%" width="100%">
+</div></div>
+    </div>
+    </div>
+<!--
+    <div class='row'>
+        <div class="col-xs-12" id='tpk_menu'>
+             <div class="container">sd</div>
+        </div>
+    </div>
+-->
+    <div class="row">
+        <div class="col-xs-12" id="tpk_body">
+             <!-- ngInclude: tpk_show --><div class="container ng-scope" ng-include="tpk_show"><div class="row container ng-scope" id="tpk_public" ng-controller="tpk_public">
+   <div class="sub-menu ng-scope" ng-controller="tpk_sub-menu" style="top: auto;">
+       <ul class="line-menu">
+          <!-- ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=a" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=a">瀟灑走一回-前副署長黃賽月</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=b" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=b">忙碌快樂的時光-前主任秘書黃清赤</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=c" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=c">際遇良緣-前人事室主任蕭宗宏</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=d" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=d">走過千禧歲月的日子-前政風室主任張光志</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=e" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=e">建基執行會計制度-前會計室主任陳俊章</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=f" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=f">三代老臣的記憶-前統計室主任紀宗智</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=g" class="ng-binding" href="http://localhost/work/AEA/index.html?upg=public&amp;context=together&amp;sub=g">行政執行典故述說-前士林分署分署長施清火</a></p></div></li><!-- end ngRepeat: submenu in sub_menu --><li ng-repeat="submenu in sub_menu" ng-class="{true: &#39;circle-active&#39;, false: &#39;&#39;}[submenu.isActive]" class="ng-scope circle-active"><div class="circle "><div class="circle-w"></div></div><div class="text"><p><a ng-href="?upg=public&amp;context=together&amp;sub=h" class="ng-binding" href="./tpk_files/tpk.html">行政執行署公務生涯回顧-前嘉義分署調署辦</a></p></div></li><!-- end ngRepeat: submenu in sub_menu -->
+       </ul>
+   </div>
+    <div class="col-xs-12">
+        <!-- ngInclude: func_html -->
+        
+        
+    </div>
+    
+    
+</div></div>
+        </div>
+    </div>
+    <div class="row" id="copyright">
+        <div class="col-xs-12">
+             <div class="container">
+                <div class="row">
+                 <div id="Bottom"><ul>
+<p class="copyright" align="left">
+<img style="WIDTH: 124px; FLOAT: right; HEIGHT: 124px" alt="QR-Code" src="./tpk_files/行動版.png" width="147" height="146" mmoid="380201">
+<a target="_nwMof" href="https://www.facebook.com/pages/%E6%B3%95%E5%8B%99%E9%83%A8%E8%A1%8C%E6%94%BF%E5%9F%B7%E8%A1%8C%E7%BD%B2%E6%9C%AC%E7%BD%B2/1392910267613444">
+<img style="WIDTH: 124px; FLOAT: right; HEIGHT: 124px" alt="facebook" src="./tpk_files/fb.png" width="147" height="146" mmoid="380201">
+</a><a target="_nwMof" href="https://www.youtube.com/channel/UCth7EXf77LjjHenf_L9eH4g">
+<img style="WIDTH: 124px; FLOAT: right; HEIGHT: 124px" alt="youtube" src="./tpk_files/youtube.png" width="147" height="146" mmoid="380201">
+</a><a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=193438&amp;ctNode=28202">隱私權保護宣告</a> │ 
+<a target="_nwMof" href="http://www.moj.gov.tw/np.asp?ctNode=27458">資訊安全政策宣告</a> │ 
+<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=193416&amp;ctNode=28201">政府網站資料開放宣告</a> │ 
+<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=401727&amp;CtNode=41129&amp;mp=030">意見信箱</a></p>
+<p align="left">地址：11485臺北市內湖區康寧路三段51號7樓　
+<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=2111&amp;CtNode=21620&amp;mp=030">交通資訊</a></p>
+<p align="left">電話總機：(02)2633-6650　傳真電話：(02)2633-6929<br>建議使用IE 9.0 以上版本　最佳觀看解析度1024x768 </p></ul></div>
+                 
+             </div>
+             </div>
+        </div>
+    </div>
+
+
+</body></html>
