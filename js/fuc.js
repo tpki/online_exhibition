@@ -18,9 +18,8 @@ function get_csv(csv,data_index){
     var spilt_csv=csv.split(/\r\n|\n/);
     var array=[];
     for (i in spilt_csv){
+        if(spilt_csv[i]==""){return false;}
         var tmp=spilt_csv[i].split(',');
-        console.log(tmp.length);
-        if(tmp.length==0){return }
         var tmpa=new Array();
         for( j in data_index){
             tmpa[data_index[j]]=tmp[j];
