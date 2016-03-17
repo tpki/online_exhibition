@@ -20,6 +20,7 @@ function get_csv(csv,data_index){
     for (i in spilt_csv){
         var tmp=spilt_csv[i].split(',');
         console.log(tmp.length);
+        if(tmp.length==0){return }
         var tmpa=new Array();
         for( j in data_index){
             tmpa[data_index[j]]=tmp[j];
