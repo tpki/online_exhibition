@@ -21,6 +21,11 @@ tpk.controller("tpk_all",function ($scope,$http){
         }
          $scope.tpk_menu=a;
     })
+    
+    $scope.menu="sd";
+    $scope.tpk_show=tpk_border+tpk_url+".html";
+});
+tpk.controller("tpk_index",function ($scope){
     $http.get("data/menu.csv").success(function (data){
         var csv=get_csv(data,["name","upg","func","image",'show']);
             var a=[];
@@ -51,10 +56,6 @@ tpk.controller("tpk_all",function ($scope,$http){
           $scope.index_show_image=a;
     })
 
-    $scope.menu="sd";
-    $scope.tpk_show=tpk_border+tpk_url+".html";
-});
-tpk.controller("tpk_index",function ($scope){
     $scope.show_detailed=function (){
     }
 })
