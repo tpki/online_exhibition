@@ -2,6 +2,16 @@ body,html{
     padding:0;
     margin:0;
     
+    background-position: top;
+    
+}
+
+#background-image-tpk{
+    background-image: url(../image/網頁設計-行政執行署-背景_01.png);
+    background-size: 100% 100%;
+    position: fixed;
+    width:100%;
+    height:100%;
 }
 .tpk-header{
     height:auto;
