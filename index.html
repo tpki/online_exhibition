@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>行政執行署-線上檔案展</title>
+    <title>執行有愛，公益無礙</title>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="library/jquery/jquery.imageloader.js"></script>
+    <script src="library/angularjs/angular.imageloader.js"></script>
     <script src="js/fuc.js"></script>
     <script src="js/active.js"></script>
     <script src="js/tpk.js"></script>
@@ -19,15 +19,11 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/tpk.css">
+    <link rel="stylesheet" href="css/tpk-index.css">
+    
 </head>
 <body ng-app="tpk" ng-controller="tpk_all">
-<div class="se-pre-con">
-    <div class='dialog-back'></div>
-    <div class='load-icon'>
-    </div>
-</div>
- <div class='dialog' id='tpk_show_modal'>
+  <div class='dialog' id='tpk_show_modal'>
   <div class='dialog-back'></div>
   <div class='dialog-show photo'>
         <div class='row'>
@@ -36,60 +32,132 @@
         </div>
     </div>
   </div>
-  
-   <div class='row'>
-    <div id='tpk_map'>
-      <div class="container">
-       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<!--
-          <div style='height:100%; float:left;'>
-              <img src="image/TPK.png" height="100px;">
-          </div>
-          <div style='padding-top:40px; padding-bottom :10px; padding-left:10px; padding-right:20px; float:left'>法部物行政執行署- 線上檔案展</div>
--->
-           <ul class="nav navbar-nav">
-              <li><a href='index.html'>首頁</a></li>
-               <li ng-repeat="menu in tpk_menu"><a ng-href="{{menu.url}}" >{{menu.name}}</a></li>
-           </ul>
-           </div>
+   <div id="header"menuhover >
+<!--   -->
+    <div class="col-xs-12" id='main-menu'>
+       <div class="container">
+          <div class="row tpk-header" >
+                <div id="logo" >
+                    <img src="image/tpki_logo.png" width="100px" ng-click="goindex()"alt="回首頁" title="回首頁">
+                </div>
+                <div class='menu-box'>
+                   <div class='tpk-title'>
+                       <h3 class='col-xs-4 text-left'>法務部行政執行署</h3>
+                       <ul class='col-xs-4 col-xs-offset-4 list-inline '>
+                           <li><a href="https://www.facebook.com/%E6%B3%95%E5%8B%99%E9%83%A8%E8%A1%8C%E6%94%BF%E5%9F%B7%E8%A1%8C%E7%BD%B2-1392910267613444/">FaceBook</a></li>
+                           <li>
+                           <a href="http://www.tpk.moj.gov.tw/mp030.html">執行署官網</a></li>
+                       </ul>
+                   </div>
+                    <div class="tpk-menu text-right col-xs-12 " >
+                    <ul class="menu-list list-inline">
+                        <li ng-repeat="menu in tpk_menu" menuonhover><a ng-href="{{menu.link}}">{{menu.name}}</a></li>
+                    </ul>
+                </div>
+
+                </div>
+                
+            </div>
         </div>
     </div>
-    </div>
-    <div class='row'>
-    <div class="col-xs-12 pull-waring" id="tpk_banner">
-        <div class="container" ng-include="'page/banner.html'">
-        </div>
-    </div>
-    </div>
-<!--
-    <div class='row'>
-        <div class="col-xs-12" id='tpk_menu'>
-             <div class="container">sd</div>
-        </div>
-    </div>
--->
-    <div class='row'>
-        <div class="col-xs-12 " id='tpk_body'>
-             <div class="container tpk_body" ng-include="tpk_show">sd</div>
-        </div>
-    </div>
-    <div class='row' id="copyright">
-        <div class="col-xs-12">
-             <div class="container">
-                <div class='row'>
-                 <div id="Bottom"><ul>
-<p class="copyright" align="left">
-<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=193438&amp;ctNode=28202">隱私權保護宣告</a> │ 
-<a target="_nwMof" href="http://www.moj.gov.tw/np.asp?ctNode=27458">資訊安全政策宣告</a> │ 
-<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=193416&amp;ctNode=28201">政府網站資料開放宣告</a> │ 
-<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=401727&amp;CtNode=41129&amp;mp=030">意見信箱</a></p>
-<p align="left">地址：11485臺北市內湖區康寧路三段51號7樓　
-<a target="_nwMof" href="http://www.tpk.moj.gov.tw/ct.asp?xItem=2111&amp;CtNode=21620&amp;mp=030">交通資訊</a></p>
-<p align="left">電話總機：(02)2633-6650　傳真電話：(02)2633-6929<br>建議使用IE 9.0 以上版本　最佳觀看解析度1024x768 </p></ul></div>
-                 
-             </div>
+        <div class="ss-menu" >
+           <div class="container">
+              <div class="row " >
+              <div class="col-xs-12 sub-m-list" >
+                     <div ng-repeat="menu in tpk_menu" class='sub-m'>
+                        <ul class="list-unstyled">
+                            <li ng-repeat='s_menu in menu.tpk_smenu'><a ng-href="{{s_menu.link}}">{{s_menu.name}}</a></li>
+                        </ul>
+                        </div>
+
+                        
+                    </div>
+               </div>
              </div>
         </div>
+    </div>
+    
+    <div class="col-xs-12 banner-color" >
+           <div class="container" id="banner">
+           <img src="image/ban.png">            
+        </div>
+    </div>
+    <div class='w100'>
+       <div class="container">
+        <div class="col-xs-12 btn-choose">
+                <div class="col-xs-5 col-xs-offset-1 text-center">
+                       <img src="image/show.png"width="300px" height="200px;">
+                   <p>實體檔案展詳細資訊</p>
+                    <div class='col-xs-12 text-center'>
+                        <button class='btn btn-default tpk-btn' ng-click="to_show_list()">現場展覽</button>
+                    </div>
+                    </div>
+                 <div class="col-xs-5 col-xs-offset-1 text-center" >
+                    <img width="300px" src="image/online_show.png" height="200px;">
+                   <p>線上檔案展詳細資訊</p>
+                    <div class='col-xs-12 text-center'>
+                    <button class='btn btn-default tpk-btn' ng-click="to_online_list()"> 線上展覽</button></div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+       <div class="container">
+        <div id='new-exhibition'>
+<!--                   替換網頁                -->
+            <blockquote>
+                <h3>現在展覽場次</h3>
+            </blockquote>
+            <h4>法務部行政執行署士林分署</h4>
+            <ul class="dl-horizontal">
+                
+                <dt>地址：</dt>
+                <dd>11485 台北市內湖區康寧路三段51號(法務部內湖聯合辦公大樓)</dd>
+                <dt>電話：</dt>
+                <dd>(02)2632-6939 </dd>
+            </ul>
+            <p>
+                 <img src="image/seapapar.png">
+            </p>
+<!--============================================-->
+        </div>
+        <div id='online-exhibition'  ng-controller="tpk_index">
+            <blockquote>
+                <h3>線上展覽目錄</h3>
+            </blockquote>
+            <div class='col-xs-12' ng-repeat="a in tpk_menu | filter:a.type='menu'">
+                <blockquote>
+                  {{a.name}}
+                  </blockquote>
+                <div class=" tpk-class" ng-repeat="smenu in a.tpk_smenu">
+               <div class='class-img'>
+                   <p>{{smenu.name}}</p>
+                   <img ng-src="image/{{smenu.image}}" width="350px" class='img-thumbnail' height="80px">
+               </div>
+               <div class='class-context'>
+                   <ul class='list-unstyled' >
+                       <li ng-repeat="context in smenu.context"><a ng-href="{{context.url}}">{{context.name}}</a></li>
+                       
+                   </ul>
+               </div>
+            </div>
+                
+            </div>
+            <div class="col-xs-offset-1 col-xs-10 tpk-class" ng-repeat="image in index_show_image">
+               <div class='class-img'>
+                   <p>{{image.name}}</p>
+                   <img ng-src="image/{{image.image}}" width="350px" class='img-thumbnail' height="80px">
+               </div>
+               <div class='class-context'>
+                   <ul class='list-inline' >
+                       <li ng-repeat="context in image.context"><a ng-href="{{context.url}}">{{context.name}}</a></li>
+                       
+                   </ul>
+               </div>
+            </div>
+            
+        </div>
+        </div>    
     </div>
 </body>
 </html>

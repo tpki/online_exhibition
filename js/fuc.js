@@ -33,3 +33,18 @@ function readText(filePath) {
         
     
     }  
+function newimage(image, srcProperty){
+    var imageObject = new Image();
+			imageObject.onload = function() {
+				if (typeof image === "object") {
+					image[srcProperty] = imageObject.src;
+				}
+				else if (typeof image === "string") {
+					image = imageObject.src;
+				}
+				deferred.resolve(image);
+				return deferred.promise;
+			};
+    
+    
+}

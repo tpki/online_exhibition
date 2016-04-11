@@ -3,29 +3,122 @@ var tpk_border="./page/";
 var usearch=url_search(window.location.search);
 var tpk_url=(usearch.upg!="")?usearch.upg:"index";
 var index_show_img;
-
+tpk.directive('imageonload', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.bind('load', function() {
+                $(this).parents(".tpk_photo").removeClass("hide");
+            });
+            element.bind('error', function(){
+                $(this).parents(".tpk_photo").removeClass("hide");
+            });
+        }
+    };
+}).directive('menuhover', function() {
+  
+    return {
+        restrict:"A",
+         link: function(scope, element, attrs) {
+             element.hover(function (){$(".ss-menu").slideDown(200).css("top",$("#main-menu").height());
+                                      },
+                           function (){$(".ss-menu").slideUp(100);});   
+         }
+    }
+}).directive("menuonhover",function (){
+    return {
+        restrict:"A",
+         link: function(scope, element, attrs) {
+             element.hover(function (){
+                $(this).css({background:"#555"});
+             $(this).find("a").css("color","#fff")},
+                function (){
+                  $(this).find("a").css({color:"#000"});
+                  $(this).css("background","#fff")})   
+             }
+         }
+});
 tpk.controller("tpk_all",function ($scope,$http){
-    
     $("#tpk_show_modal").hide();
-    $http.get("data/menu.csv").success(function (data){
+    $http.get("data/m-menu.csv").success(function (data){
         $(".se-pre-con").hide();
-        var t_menu=get_csv(data,["name","upg","func"]);
-        var a=[];
+        var t_menu=get_csv(data,["name","link","type"]);
+        var a=Array();
         for(t in t_menu){
             var tmp=t_menu[t];
-            if(tmp.upg!="index"){
-                a.push({name:tmp.name,url:"?upg="+tmp.upg+"&context="+tmp.func});
-            }else{
-                a.push({name:tmp.name,url:"index.html"});
+            var link="";
+            switch(tmp.type){
+                case "link":
+                    a[t]={name:tmp.name,link:"http://"+tmp.link,tpk_smenu:{},type:tmp.type};
+                    break;
+                 case "in-web":
+                    a[t]={name:tmp.name,link:tmp.link,tpk_smenu:{},type:tmp.type};
+                    break;
+                 case "list":
+                 case "menu":
+                    a[t]={name:tmp.name,link:"",tpk_smenu:{},type:tmp.type};
+                    $.ajax({
+                        url : 'data/'+tmp.link+".csv",
+                        cache : false, 
+                        async : false,
+                        type : "get",
+                        dataType : 'html',
+                        success : function (result){
+                            var tpk_smenu={};
+                             var ts_menu=get_csv(result,["name","link","context","page","image"]);
+                               for(ts in ts_menu){
+                                   var tmp=ts_menu[ts];
+                                   var lk="reindex.html?upg="+tmp.link+"&context="+tmp.context+"&sub="+tmp.page;
+                                 a[t]["tpk_smenu"][ts]={link:lk,name:tmp.name,image:tmp.image,context:{}}; 
+                                   $.ajax({
+                                    url : 'data/sub_menu/'+tmp.context+".csv",
+                                    cache : false, 
+                                    async : false,
+                                    type : "get",
+                                    dataType : 'html',
+                                    success : function (tts){
+                                       var tpks_smenu={};
+                                     var tss_menu=get_csv(tts,["name","page"]);
+                                       for(tss in tss_menu){
+                                           var tmpa=tss_menu[tss];
+                                           var lo={name:tmpa['name'],url:"reindex.html?upg="+tmp.link+"&context="+tmp.context+"&sub="+tmpa.page};
+                                           a[t]["tpk_smenu"][ts]['context'][tss]=lo;
+                                           
+                                       }
+                                       
+                                   }
+                                    })
+                               } 
+                            }
+                        });
+                       
+                        
+                    break;
+                    
+                    
             }
         }
          $scope.tpk_menu=a;
     })
-    
     $scope.menu="sd";
     $scope.tpk_show=tpk_border+tpk_url+".html";
+    $scope.to_show_list=function (){
+        //console.log($("#new-exhibition").offset().top);
+        $(window).scrollTop($("#new-exhibition").offset().top);
+        
+    }
+    $scope.to_online_list=function (){
+        //console.log($("#new-exhibition").offset().top);
+        $(window).scrollTop($("#online-exhibition").offset().top);
+        
+    }
+    $scope.goindex=function (){
+        location.href="index.html"
+    }
+    
+    
 });
-tpk.controller("tpk_index",function ($scope){
+tpk.controller("tpk_index",function ($scope,$http){
     $http.get("data/menu.csv").success(function (data){
         var csv=get_csv(data,["name","upg","func","image",'show']);
             var a=[];
@@ -55,7 +148,7 @@ tpk.controller("tpk_index",function ($scope){
                }
           $scope.index_show_image=a;
     })
-
+    
     $scope.show_detailed=function (){
     }
 })
@@ -122,12 +215,15 @@ tpk.controller("banner",function ($scope){
     ]
 })
 tpk.controller("tpk_photo",function ($scope,$http,$location){
-    //$scope.tph_show=true;
-// http get request to read CSV file content
+ 
+    
     var photo=[];
     var t=false;
     var photo_show_num=12;
-    
+    $scope.loa=function (){
+        console.log("a");
+        
+    }
     if(usearch['sub']==undefined||usearch['sub']==""){
        $.ajax({
                 url : "data/"+usearch['context']+".csv",
@@ -137,6 +233,8 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
                 dataType : 'html',
                 success : function (result){
                    photo=get_csv(result,["image","name","sub","context"]);
+                   //console.log(photo[0]['image']="icon/ajax-loader.gif");
+                  
                    $scope.photo=photo;
                    $scope.show=false;
                 }
@@ -151,16 +249,17 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
                 success : function (allText){
                     photo=get_csv(allText,["image","name","sub","context"]);
                     for(i in photo){
-                        photo[i]['hide']="none";
+                        
+                        //photo[i]['hide']="none";
                     }
                     t=true;
                     $scope.show=true;
                 }
             });
-        for(i=0;i<photo_show_num;i++){
-                photo[i]['hide']="block";
-            }
-        
+//        for(i=0;i<photo_show_num;i++){
+//                photo[i]['hide']="block";
+//            }
+//        
         $scope.photo=photo;
         $scope.$watch("photo",function (newvalue,oldvalue){
             console.log(newvalue+"/"+oldvalue);
@@ -198,20 +297,6 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
         
         }
     }
-    $scope.load_more=function (){
-       function load_more_show(n){
-            $(".tpk_photo").eq(n).fadeIn(1000,function (){
-                if(n<photo_show_num+12){
-                    load_more_show(n+1)
-                }else{
-                    photo_show_num=photo_show_num+12;           
-                    console.log(photo_show_num);            
-                    }
-            });
-       }
-        load_more_show(photo_show_num);
-        console.log(photo_show_num);
-        
-    }
 })
+
 
