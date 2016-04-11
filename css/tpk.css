@@ -5,7 +5,82 @@ html,body{
     position: relative;  
     background-color:#4B3C29;
 }
-
+.tpk-header{
+    height:auto;
+}
+#logo{
+    width:100px;
+    float:left;
+}
+.menu-box{
+    width:91%;
+    float:left;
+    
+}
+.tpk-title{
+   
+    padding-left:20px;
+    
+}
+.tpk-menu{
+    font-size: 18px;
+}
+.menu-list{
+    width:100%;
+    padding:0;
+    margin:0;
+}
+.menu-list>li.show{
+    background:#555;
+    color:azure;
+    
+}
+.top-1{
+    margin-top:-10px;
+    
+}
+.menu-list>li{
+    color:black;
+    float:left;
+    margin-left:10px;
+    padding:10px;
+}
+.menu-list>li a{
+    color:black;
+    
+}
+.menu-list>li a:hover{
+    color:azure;
+    
+}
+.ss-menu{
+    position: absolute;
+    width:100%;
+    background:#555;
+    z-index: 999;
+    float:left;
+    height:200px;
+    display: none;
+   
+}
+.ss-menu a{
+    color: azure;
+    font-style:normal;
+    
+}
+.sub-m-list{
+    margin-left:100px;
+     color:azure;
+}
+.sub-m{
+    float:left;
+    margin-left:10px;
+    width:100px;
+    padding:10px;
+    text-align: center;
+    
+}
+/*---------------------*/
 .index_show_image{
     max-width: 100%;
 
@@ -13,6 +88,7 @@ html,body{
 .top-30{
     margin-top:30px;
 }
+
 #tpk_map{
 /*
     padding-top:5px;
