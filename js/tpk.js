@@ -152,40 +152,6 @@ tpk.controller("tpk_all",function ($scope,$http){
     
     
 });
-tpk.controller("tpk_index",function ($scope,$http){
-    $http.get("data/menu.csv").success(function (data){
-        var csv=get_csv(data,["name","upg","func","image",'show']);
-            var a=[];
-        for (i in csv){
-            var ts=csv[i];
-            //console.log(ts)
-            if(ts.show!='N'){
-            var tmp={"name":ts.name,image:ts.image,context:[]};
-            $.ajax({
-                url : 'data/sub_menu/'+ts.func+".csv",
-                cache : false, 
-                async : false,
-                type : "get",
-                dataType : 'html',
-                success : function (result){
-                   var tts=get_csv(result,["name","url"]);
-                    var ttmp=[];
-                    for(k in tts){
-                        var tzp=tts[k];
-                        ttmp.push({name:tzp.name.substring(0,5),url:"?upg="+ts.upg+"&context="+ts.func+"&sub="+tzp.url})
-                    }
-                    tmp['context']=ttmp;
-                }
-            });
-            a.push(tmp);
-        }
-               }
-          $scope.index_show_image=a;
-    })
-    
-    $scope.show_detailed=function (){
-    }
-})
 tpk.controller("tpk_public",function ($scope){
     active_page();
     $scope.upg=tpk_url;
