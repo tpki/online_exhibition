@@ -96,7 +96,7 @@ tpk.controller("tpk_all",function ($scope,$http){
                         cache : false, 
                         async : false,
                         type : "get",
-                        dataType : 'html',
+                        dataType : 'text',
                         success : function (result){
                             var tpk_smenu={};
                              var ts_menu=get_csv(result,["name","link","context","page","image"]);
@@ -109,7 +109,7 @@ tpk.controller("tpk_all",function ($scope,$http){
                                     cache : false, 
                                     async : false,
                                     type : "get",
-                                    dataType : 'html',
+                                    dataType : 'text',
                                     success : function (tts){
                                        var tpks_smenu={};
                                      var tss_menu=get_csv(tts,["name","page"]);
@@ -229,7 +229,7 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
                 cache : false, 
                 async : false,
                 type : "get",
-                dataType : 'html',
+                dataType : 'text',
                 success : function (result){
                    photo=get_csv(result,["image","name","sub","context"]);
                    //console.log(photo[0]['image']="icon/ajax-loader.gif");
@@ -244,7 +244,7 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
                 cache : false, 
                 async : false,
                 type : "get",
-                dataType : 'html',
+                dataType : 'text',
                 success : function (allText){
                     photo=get_csv(allText,["image","name","sub","context"]);
                     for(i in photo){
@@ -298,7 +298,7 @@ tpk.controller("vidoe",function ($scope,$http){
                 cache : false, 
                 async : false,
                 type : "get",
-                dataType : 'html',
+                dataType : 'text',
                 success : function (result){
                    var vidoe=get_csv(result,["image","title","context","link","type"]);
                    //console.log(photo[0]['image']="icon/ajax-loader.gif");
