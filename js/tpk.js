@@ -37,6 +37,39 @@ tpk.directive('imageonload', function() {
                   $(this).css("background","#fff")})   
              }
          }
+}).directive("vidoelink",function (){
+    return {
+        restrict:"A",
+        link:function (scope,element,attrs){
+          element.click(function (){
+              var type=element.data("type");
+              console.log(type);
+              if(type=="url"){
+                    return true;
+              }else if(type='in_vidoe'){
+                  $("#tpk_show_modal").show();
+                  var context="<video width='100%' controls><source src='"+element.attr("href")+"' type='video/mp4'>Your browser does not support HTML5 video.</video>"
+                  $(".show_location").html(context);
+              }
+              return false;
+              
+          })
+        }
+        
+    }
+    
+}).directive("hideclick",function (){
+return {
+        restrict:"A",
+        link:function (scope,element,attrs){
+          element.click(function (){
+              $("#tpk_show_modal").hide();
+               $(".show_location").html("");
+          })
+        }
+        
+    }
+    
 });
 tpk.controller("tpk_all",function ($scope,$http){
     $("#tpk_show_modal").hide();
@@ -188,8 +221,7 @@ tpk.controller("tpk-photo-menu",function ($scope,$http){
     'Content-Type': undefined
  },}).success(function (allText){
            photo=get_csv(allText,["image","name","sub"]);
-           
-            //console.log(t[0]["image"])
+            console.log(photo[0]["sub"])
             if(usearch['sub']==undefined){  
                 photo[0]['isActive']=true;
             }else{
@@ -261,11 +293,6 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
 //            }
 //        
         $scope.photo=photo;
-        $scope.$watch("photo",function (newvalue,oldvalue){
-            console.log(newvalue+"/"+oldvalue);
-            
-            
-        });
         
     }
 //    var photo=[
@@ -297,6 +324,24 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
         
         }
     }
+})
+tpk.controller("vidoe",function ($scope,$http){
+    $.ajax({
+                url : "data/"+usearch['context']+".csv",
+                cache : false, 
+                async : false,
+                type : "get",
+                dataType : 'html',
+                success : function (result){
+                   var vidoe=get_csv(result,["image","title","context","link","type"]);
+                   //console.log(photo[0]['image']="icon/ajax-loader.gif");
+                    var tp={};
+                    $scope.vidoe=vidoe;
+                    
+                }
+            });
+    
+    
 })
 
 
