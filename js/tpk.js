@@ -7,11 +7,12 @@ tpk.directive('imageonload', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
+            
             element.bind('load', function() {
-                $(this).parents(".tpk_photo").removeClass("hide");
+                $(element).removeClass("hide");
             });
             element.bind('error', function(){
-                $(this).parents(".tpk_photo").removeClass("hide");
+                $(element).removeClass("hide");
             });
         }
     };
