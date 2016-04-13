@@ -231,6 +231,10 @@ ul.line-menu>li>.text{
     height:100%;
 
 }
+.cation{
+    width:1140px;
+    margin:auto;
+}
 .dialog-show{
     padding-top:10px;
     position: fixed;

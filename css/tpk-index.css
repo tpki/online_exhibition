@@ -5,7 +5,22 @@ body,html{
     background-position: top;
     
 }
-
+.bs-blockquote-color{
+    border-left:10px solid #505;
+    
+}
+.bs-s-bl-color{
+    border-left:10px solid #d11;
+    
+    
+}
+.cation{
+    width:1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 #background-image-tpk{
     background-image: url(../image/網頁設計-行政執行署-背景_01.png);
     background-size: 100% 100%;
@@ -22,7 +37,12 @@ body,html{
     float:left;
 }
 .banner-color{
-    background-color:beige;
+    background-color:cornsilk;
+    box-shadow: 0px 0px 7px 1px #000;
+    
+}
+.box-shadow{
+    box-shadow: 0px 0px 7px 1px #000;
     
 }
 .menu-box{
@@ -100,7 +120,11 @@ body,html{
     font-size: 18px;
 }
 #banner{
-
+    
+}
+#new-exhibition{
+    padding-top:13px;
+    
 }
 .w100{
     width:100%;

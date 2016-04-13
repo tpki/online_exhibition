@@ -32,10 +32,10 @@
    <div id="header"menuhover >
 <!--   -->
     <div class="col-xs-12" id='main-menu'>
-       <div class="container">
+       <div class='cation'>
           <div class="row tpk-header" >
                 <div id="logo" >
-                    <img src="image/tpki_logo.png" width="100px" ng-click="goindex()"alt="回首頁" title="回首頁" imageonload>
+                    <img src="image/tpki_logo.png" width="100%" ng-click="goindex()"alt="回首頁" title="回首頁" imageonload>
                 </div>
                 <div class='menu-box'>
                    <div class='tpk-title'>
@@ -58,7 +58,7 @@
         </div>
     </div>
         <div class="ss-menu" >
-           <div class="container">
+           <div class='cation'>
               <div class="row " >
               <div class="col-xs-12 sub-m-list" >
                      <div ng-repeat="menu in tpk_menu" class='sub-m'>
@@ -76,20 +76,20 @@
     
     <div class="col-xs-12 banner-color" >
            <div class="container" id="banner">
-           <img src="image/ban.png" imageonload>            
+           <img src="image/ban.png" imageonload >            
         </div>
     </div>
-    <div class='w100'>
-       <div class="container">
+    <div class='w100  box-shadow'>
+       <div class="container" >
         <div class="col-xs-12 btn-choose">
-                <div class="col-xs-5 col-xs-offset-1 text-center">
+                <div class="col-xs-5  text-center">
                        <img src="image/show.png"width="300px" imageonload>
                    <p>實體檔案展詳細資訊</p>
                     <div class='col-xs-12 text-center'>
                         <button class='btn btn-default tpk-btn' ng-click="to_show_list()">現場展覽</button>
                     </div>
                     </div>
-                 <div class="col-xs-5 col-xs-offset-1 text-center" >
+                 <div class="col-xs-5 col-xs-offset-2 text-center" >
                     <img width="300px" src="image/online_show.png" imageonload>
                    <p>線上檔案展詳細資訊</p>
                     <div class='col-xs-12 text-center'>
@@ -107,11 +107,11 @@
 <!--============================================-->
         </div>
         <div id='online-exhibition' >
-            <blockquote>
+            <blockquote class='bs-blockquote-color'>
                 <h3>線上展覽目錄</h3>
             </blockquote>
             <div class='col-xs-12' ng-repeat="a in tpk_menu | filter:a.type='menu'">
-                <blockquote>
+                <blockquote class='bs-s-bl-color'>
                   {{a.name}}
                   </blockquote>
                 <div class=" tpk-class" ng-repeat="smenu in a.tpk_smenu">
