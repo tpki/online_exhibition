@@ -167,8 +167,6 @@ ul.line-menu>li.circle-active>.circle>.circle-w{
     background-color:#FFF;
     border-radius: 50%;
     text-align: center;
-    
-
 }
 ul.line-menu>li>.text{
     width:90px;
@@ -177,6 +175,11 @@ ul.line-menu>li>.text{
 }
 .sub-menu{
     position: relative;
+    float:left;
+    width:170px;
+}
+.p-sub-menu{
+    position: absolute;
     float:left;
     width:170px;
 }
@@ -298,5 +301,23 @@ padding-left:20px;
     margin-right:auto;
     border-radius: 50%;
     background:url(../image/icon/ajax-loader.gif) center no-repeat #FFF;
+}
+.bl-block{
+    border-left:10px solid #505;
+}
+.sm-block{
+    border-left:10px solid #D51;
+}
+.s-context{
+    padding-left:40px;
+    
+}
+.s-color{
+    color:#33D;
+    font-weight: 900;
+    
+}
+.ol-margin>li{
+    margin-top:15px;
     
 }
