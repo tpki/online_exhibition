@@ -72,7 +72,13 @@ return {
     }
     
 });
+function s_menu_ajax(){
+    
+    
+    
+}
 tpk.controller("tpk_all",function ($scope,$http){
+    
     $("#tpk_show_modal").hide();
     $http.get("data/m-menu.csv").success(function (data){
         $(".se-pre-con").hide();
@@ -91,6 +97,8 @@ tpk.controller("tpk_all",function ($scope,$http){
                  case "list":
                  case "menu":
                     a[t]={name:tmp.name,link:"",tpk_smenu:{},type:tmp.type};
+                    //s_menu_ajax(a,t,tmp.link);
+                    b=
                     $.ajax({
                         url : 'data/'+tmp.link+".csv",
                         cache : false, 
@@ -255,20 +263,11 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
                     $scope.show=true;
                 }
             });
-//        for(i=0;i<photo_show_num;i++){
-//                photo[i]['hide']="block";
-//            }
-//        
+
         $scope.photo=photo;
         
     }
-//    var photo=[
-//        {image:"page2.png",name:"try",context:"try"},
-//         {image:"page2.png",name:"try",context:"try"},
-//         {image:"page2.png",name:"try",context:"try"},
-//         {image:"page2.png",name:"try",context:"try"}
-//    ]
-   
+
     $scope.text_up=function (){
         this.active="photo_text_up";
    }
@@ -293,20 +292,29 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
     }
 })
 tpk.controller("vidoe",function ($scope,$http){
-    $.ajax({
-                url : "data/"+usearch['context']+".csv",
-                cache : false, 
-                async : false,
-                type : "get",
-                dataType : 'text',
-                success : function (result){
-                   var vidoe=get_csv(result,["image","title","context","link","type"]);
-                   //console.log(photo[0]['image']="icon/ajax-loader.gif");
-                    var tp={};
-                    $scope.vidoe=vidoe;
+    $http.get("data/"+usearch['context']+".csv",{headers: {
+    'Content-Type': undefined
+ },}).success(function (text){
+        var vidoe=get_csv(text,["image","title","context","link","type"]);
+        var tp={};
+        $scope.vidoe=vidoe;
                     
-                }
-            });
+        
+    });
+//    $.ajax({
+//                url : "data/"+usearch['context']+".csv",
+//                cache : false, 
+//                async : false,
+//                type : "get",
+//                dataType : 'text',
+//                success : function (result){
+//                   var vidoe=get_csv(result,["image","title","context","link","type"]);
+//                   //console.log(photo[0]['image']="icon/ajax-loader.gif");
+//                    var tp={};
+//                    $scope.vidoe=vidoe;
+//                    
+//                }
+//            });
     
     
 })
