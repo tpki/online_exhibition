@@ -285,6 +285,14 @@ padding-left:20px;
     text-indent: 20px;
 
 }
+.open-space{
+    text-indent:50px;
+    
+}
+.r-color{
+    color:#d00;
+    
+}
 .se-pre-con {
 	position: fixed;
 	left: 0px;

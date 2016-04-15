@@ -71,12 +71,41 @@ return {
         
     }
     
+}).directive("lightimage",function (){
+    return {
+        restrict:"A",
+        link:function (scope,element,attrs){
+            element.click(function (){
+                var aa=$(this).attr("src");
+                var img =new Image();
+                img.src=aa;
+$("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html",function (){
+    var width,height;
+        if(img.width>img.height){
+            if(img.width>900){
+                width="900";
+            }else{
+                width=img.width
+            }
+        }else{
+            if(img.height>600){
+                height="600";
+            }else{
+                height=img.height
+                
+            }
+            
+        } $("#show_image_c").attr({"src":aa,width:width,height:height});
+    
+})
+                return false;
+            })
+            
+        }
+        
+    }
+    
 });
-function s_menu_ajax(){
-    
-    
-    
-}
 tpk.controller("tpk_all",function ($scope,$http){
     
     $("#tpk_show_modal").hide();
@@ -164,6 +193,8 @@ tpk.controller("tpk_public",function ($scope){
     active_page();
     $scope.upg=tpk_url;
     $scope.func_html="data/public/"+usearch['sub']+".html";
+    
+    
 })
 tpk.controller("tpk_sub-menu",function ($scope,$http){
     var t=[];
@@ -276,14 +307,28 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
     }
     $scope.photo_f=function (tmp,image,context){
         if(t){
-            $("#tpk_show_modal").show();
-            $("#tpk_show_modal .show_location").load("./page/imageshow.html",function (){
-                 $("#tpk_show_modal .show_location").find("#show_image_c").attr("src","image/"+image);
-                $("#tpk_show_modal .show_location").find(".introduction").html(context)
-                $(".dialog-back").mousedown(function (){
-                $("#tpk_show_modal").hide();
-                })
-            });
+            var aa=image;
+                var img =new Image();
+                img.src=aa;
+$("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html",function (){
+    var width,height;
+        if(img.width>img.height){
+            if(img.width>900){
+                width="900";
+            }else{
+                width=img.width
+            }
+        }else{
+            if(img.height>600){
+                height="600";
+            }else{
+                height=img.height
+                
+            }
+            
+        } $("#show_image_c").attr({"src":aa,width:width,height:height});
+    
+})
            
         }else{
             location.href='?upg='+usearch['upg']+"&context="+usearch['context']+"&sub="+tmp;
