@@ -1,4 +1,4 @@
-image,測試用影音,context,http://www.youtube.com,url
-image,測試用影音2,介紹,data/vidoe/vid_bigbuckbunny.mp4,in_vidoe
-image,測試用影音3,簡介,try3,list
+image,測試用影音,context,https://www.youtube.com/embed/LWaJZ_GWf9s,youtube
+image,測試用影音2,介紹,data/vidoe/vid_bigbuckbunny.mp4,in_video
+image,測試用影音3,簡介,vidoe/try3,list
 

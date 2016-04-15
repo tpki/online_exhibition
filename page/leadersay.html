@@ -1,0 +1,16 @@
+<div class='row tpk_body col-xs-12'style='margin-top:30px;' ng-controller="tpk_leader">
+   <div class='sub-menu'>
+      <div class='photo-top'>目錄</div>
+       <ul class='line-menu'>
+          <li ng-repeat='submenu in sub_menu' ng-class="{true: 'circle-active', false: ''}[submenu.isActive]"><div class='circle '><div class='circle-w'></div></div><div class='text'><p><a ng-href="?upg={{upg}}&context={{context}}&sub={{submenu.sub}}">{{submenu.name}}</a></p></div></li>
+       </ul>
+   </div>
+    <div class="col-xs-offset-3 col-xs-8 leader_say " >
+        <div class="">
+           <div id='leader_video'></div>
+            
+        </div>
+    </div>
+   
+</div>
+
