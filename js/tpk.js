@@ -228,9 +228,9 @@ tpk.controller("index_list", function ($scope, $http) {
                                 context: {}
                             };
                             var tru=false;
-                            if(ts==ts_menu.length-1){
-                                tru=true;
-                            }
+//                            if(ts==ts_menu.length-1){
+//                                tru=false;
+//                            }
                             s_menu_list(a, t, ts, tmp,tru);
                         }
                     }
