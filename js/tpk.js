@@ -190,7 +190,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
         location.href = "index.html"
     }
     var s_menu_ajax = function (a, index, typea) {
-        //console.log(index)
+        $scope.tit="a";
         $.ajax({
             url: 'data/' + typea.link + ".csv",
             cache: false,
@@ -208,7 +208,6 @@ tpk.controller("tpk_all", function ($scope, $http) {
                         image: tmp.image,
                         context: {}
                     };
-                    $scope.tpk_menu=a
                     s_menu_list(a, index, ts, tmp);
                 }
             }
@@ -232,7 +231,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
                     a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
 
                 }
-
+                $scope.tpk_menu=a;
             }
         })
     }
