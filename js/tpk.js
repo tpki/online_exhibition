@@ -193,7 +193,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
 
 });
 tpk.controller("tpk_public", function ($scope) {
-//    active_page();
+  active_page();
     $scope.upg = tpk_url;
     $scope.func_html = "data/public/" + usearch['sub'] + ".html";
 })
