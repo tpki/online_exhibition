@@ -97,7 +97,7 @@ tpk.directive('imageonload', function () {
                 var aa = $(this).attr("src");
                 var img = new Image();
                 img.src = aa;
-            $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
+                $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
                     var width, height;
                     if (img.width > img.height) {
                         if (img.width > 900) {
@@ -189,10 +189,56 @@ tpk.controller("tpk_all", function ($scope, $http) {
     $scope.goindex = function () {
         location.href = "index.html"
     }
+    var s_menu_ajax = function (a, index, typea) {
+        //console.log(index)
+        $.ajax({
+            url: 'data/' + typea.link + ".csv",
+            cache: false,
+            type: "get",
+            dataType: 'text',
+            success: function (result) {
+                var tpk_smenu = {};
+                var ts_menu = get_csv(result, ["name", "link", "context", "page", "image"]);
+                for (ts in ts_menu) {
+                    var tmp = ts_menu[ts];
+                    var lk = "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmp.page;
+                    a[index]["tpk_smenu"][ts] = {
+                        link: lk,
+                        name: tmp.name,
+                        image: tmp.image,
+                        context: {}
+                    };
+                    s_menu_list(a, index, ts, tmp);
+                }
+            }
+        });
+    }
+    var s_menu_list = function (a, index, s_menu_index, tmp) {
+        $.ajax({
+            url: 'data/sub_menu/' + tmp.context + ".csv",
+            cache: false,
+            type: "get",
+            dataType: 'text',
+            success: function (tts) {
+                var tpks_smenu = {};
+                var tss_menu = get_csv(tts, ["name", "page"]);
+                for (tss in tss_menu) {
+                    var tmpa = tss_menu[tss];
+                    var lo = {
+                        name: tmpa['name'],
+                        url: "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmpa.page
+                    };
+                    a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
+
+                }
+
+            }
+        })
+    }
 
 });
 tpk.controller("tpk_public", function ($scope) {
-  active_page();
+    active_page();
     $scope.upg = tpk_url;
     $scope.func_html = "data/public/" + usearch['sub'] + ".html";
 })
@@ -210,7 +256,7 @@ tpk.controller("tpk_sub-menu", function ($scope, $http) {
             })
         }
         if (usearch['sub'] == undefined || usearch['sub'] == "") {
-            location.href=a[0]['url'];
+            location.href = a[0]['url'];
         } else {
             for (i in a) {
                 if (a[i]['select'] == usearch['sub']) {
@@ -361,10 +407,10 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
     }
 })
 tpk.controller("video", function ($scope, $http) {
-    
+
     var csv = (usearch['sub'] == "" || usearch['sub'] == undefined) ? usearch['context'] : usearch['sub'];
     console.log(usearch['sub']);
-    $http.get("data/" +csv + ".csv", {
+    $http.get("data/" + csv + ".csv", {
         headers: {
             'Content-Type': undefined
         },
@@ -390,8 +436,8 @@ tpk.controller("tpk_leader", function ($scope, $http) {
             for (i in photo) {
                 if (photo[i]['sub'] == usearch['sub']) {
                     photo[i]['isActive'] = true;
-                    $("#leader_video").html("<iframe width='100%' height='500' src='"+photo[i]['youtube']+"' frameborder='0' allowfullscreen></iframe>");
-                    $scope.title=photo[i]['name'];
+                    $("#leader_video").html("<iframe width='100%' height='500' src='" + photo[i]['youtube'] + "' frameborder='0' allowfullscreen></iframe>");
+                    $scope.title = photo[i]['name'];
                 }
             }
         }
