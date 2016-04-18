@@ -51,7 +51,7 @@ function newimage(image, srcProperty) {
 
 }
 
-function s_menu_ajax(a, index, tmp) {  
+function s_menu_ajax(a, index, tmp) {
     $.ajax({
         url: 'data/' + tmp.link + ".csv",
         cache: false,
@@ -70,19 +70,19 @@ function s_menu_ajax(a, index, tmp) {
                     image: tmp.image,
                     context: {}
                 };
-               
+
             }
         }
     });
- 
+
 }
 
-function s_menu_list(a, index, s_menu_index, tmp) {
+function s_menu_list(a, index, s_menu_index, tmp,tru) {
     $.ajax({
         url: 'data/sub_menu/' + tmp.context + ".csv",
         cache: false,
         type: "get",
-        async: false,
+        async: tru,
         dataType: 'text',
         success: function (tts) {
             var tpks_smenu = {};

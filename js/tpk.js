@@ -194,7 +194,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
 
 });
 tpk.controller("index_list", function ($scope, $http) {
-    var a = b = [];
+    var a=b=[];
     $http.get("data/m-menu.csv").success(function (data) {
         var t_menu = get_csv(data, ["name", "link", "type"]);
         for (t in t_menu) {
@@ -231,26 +231,7 @@ tpk.controller("index_list", function ($scope, $http) {
                             if(ts==ts_menu.length-1){
                                 tru=true;
                             }
-                            $.ajax({
-                                url: 'data/sub_menu/' + tmp.context + ".csv",
-                                cache: false,
-                                type: "get",
-                                async: tru,
-                                dataType: 'text',
-                                success: function (tts) {
-                                    var tpks_smenu = {};
-                                    var tss_menu = get_csv(tts, ["name", "page"]);
-                                    for (tss in tss_menu) {
-                                        var tmpa = tss_menu[tss];
-                                        var lo = {
-                                            name: tmpa['name'],
-                                            url: "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmpa.page
-                                        };
-                                        a[t]["tpk_smenu"][ts]['context'][tss] = lo;
-
-                                    }
-                                }
-                            })
+                            s_menu_list(a, t, ts, tmp,tru);
                         }
                     }
                 });
