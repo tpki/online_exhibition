@@ -110,7 +110,7 @@
             <blockquote class='bs-blockquote-color'>
                 <h3>線上展覽目錄</h3>
             </blockquote>
-            <div class='col-xs-12' ng-repeat="a in tpk_menu | filter:a.type='menu'">
+            <div class='col-xs-12' ng-repeat="a in tpk_menu | filter:a.type='menu'" >
                 <blockquote class='bs-s-bl-color'>
                   {{a.name}}
                   </blockquote>
@@ -128,9 +128,10 @@
             </div>
                 
             </div>
+<!--
             <div class="col-xs-offset-1 col-xs-10 tpk-class" ng-repeat="image in index_show_image">
                <div class='class-img'>
-                   <p>{{image.name}}</p>
+                   <p>{{image.name}}a</p>
                    <img ng-src="image/{{image.image}}" imageonload width="350px" class='img-thumbnail' height="80px">
                </div>
                <div class='class-context'>
@@ -140,6 +141,7 @@
                    </ul>
                </div>
             </div>
+-->
             
         </div>
         </div>    

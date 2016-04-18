@@ -5,8 +5,9 @@
           <li ng-repeat='submenu in sub_menu' ng-class="{true: 'circle-active', false: ''}[submenu.isActive]"><div class='circle '><div class='circle-w'></div></div><div class='text'><p><a ng-href="?upg={{upg}}&context={{context}}&sub={{submenu.sub}}">{{submenu.name}}</a></p></div></li>
        </ul>
    </div>
-    <div class="col-xs-offset-3 col-xs-8 leader_say " >
-        <div class="">
+    <div class="col-xs-offset-1 col-xs-8 leader_say " >
+        <div class="row">
+          <blockquote><h3>{{title}}</h3></blockquote>
            <div id='leader_video'></div>
             
         </div>
