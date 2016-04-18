@@ -208,6 +208,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
                         image: tmp.image,
                         context: {}
                     };
+                    $scope.tpk_menu=a
                     s_menu_list(a, index, ts, tmp);
                 }
             }
