@@ -196,29 +196,11 @@ tpk.controller("tpk_all", function ($scope, $http) {
 tpk.controller("index_list", function ($scope, $http) {
     var a=b=[];
     $http.get("data/m-menu.csv").success(function (data) {
-        $(".se-pre-con").hide();
         var t_menu = get_csv(data, ["name", "link", "type"]);
         for (t in t_menu) {
             var tmp = t_menu[t];
             var link = "";
             switch (tmp.type) {
-            case "link":
-                a[t] = {
-                    name: tmp.name,
-                    link: "http://" + tmp.link,
-                    tpk_smenu: {},
-                    type: tmp.type
-                };
-                break;
-            case "in-web":
-                a[t] = {
-                    name: tmp.name,
-                    link: tmp.link,
-                    tpk_smenu: {},
-                    type: tmp.type
-                };
-                break;
-            case "list":
             case "menu":
                 a[t] = {
                     name: tmp.name,
