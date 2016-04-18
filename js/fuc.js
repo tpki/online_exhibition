@@ -50,11 +50,39 @@ function newimage(image, srcProperty) {
 
 
 }
+
+function s_menu_ajax(a, index, tmp) {  
+    $.ajax({
+        url: 'data/' + tmp.link + ".csv",
+        cache: false,
+        type: "get",
+        async: true,
+        dataType: 'text',
+        success: function (result) {
+            var tpk_smenu = {};
+            var ts_menu = get_csv(result, ["name", "link", "context", "page", "image"]);
+            for (ts in ts_menu) {
+                var tmp = ts_menu[ts];
+                var lk = "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmp.page;
+                a[index]["tpk_smenu"][ts] = {
+                    link: lk,
+                    name: tmp.name,
+                    image: tmp.image,
+                    context: {}
+                };
+               
+            }
+        }
+    });
+ 
+}
+
 function s_menu_list(a, index, s_menu_index, tmp) {
     $.ajax({
         url: 'data/sub_menu/' + tmp.context + ".csv",
         cache: false,
         type: "get",
+        async: false,
         dataType: 'text',
         success: function (tts) {
             var tpks_smenu = {};

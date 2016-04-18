@@ -52,8 +52,9 @@ tpk.directive('imageonload', function () {
         restrict: "A",
         link: function (scope, element, attrs) {
             element.click(function () {
-                var type = element.data("type");
 
+                var type = element.data("type");
+                console.log(type);
                 if (type == "url") {
                     return true;
                 } else if (type == 'in_video') {
@@ -131,8 +132,6 @@ tpk.directive('imageonload', function () {
 tpk.controller("tpk_all", function ($scope, $http) {
     $("#tpk_show_modal").hide();
     var a = Array();
-    var n = 0;
-    var b = [];
     $http.get("data/m-menu.csv").success(function (data) {
         $(".se-pre-con").hide();
         var t_menu = get_csv(data, ["name", "link", "type"]);
@@ -164,16 +163,33 @@ tpk.controller("tpk_all", function ($scope, $http) {
                     tpk_smenu: {},
                     type: tmp.type
                 };
-                //s_menu_list(a, t, ts, tmp);
-                s_menu_ajax(a, t, tmp);
-
+                $.ajax({
+                    url: 'data/' + tmp.link + ".csv",
+                    cache: false,
+                    type: "get",
+                    async:false,
+                    dataType: 'text',
+                    success: function (result) {
+                        var tpk_smenu = {};
+                        var ts_menu = get_csv(result, ["name", "link", "context", "page", "image"]);
+                        for (ts in ts_menu) {
+                            var tmp = ts_menu[ts];
+                            var lk = "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmp.page;
+                            a[t]["tpk_smenu"][ts] = {
+                                link: lk,
+                                name: tmp.name,
+                                image: tmp.image,
+                                context: {}
+                            };
+                            s_menu_list(a, t, ts, tmp);
+                        }
+                    }
+                });
+                //s_menu_ajax(a, t, tmp);
                 break;
             }
         }
         $scope.tpk_menu = a;
-
-
-
     })
 
     $scope.menu = "sd";
@@ -193,78 +209,12 @@ tpk.controller("tpk_all", function ($scope, $http) {
     }
 
 });
-tpk.controller("index_list", function ($scope, $http) {
-    var a=b=[];
-    $http.get("data/m-menu.csv").success(function (data) {
-        $(".se-pre-con").hide();
-        var t_menu = get_csv(data, ["name", "link", "type"]);
-        for (t in t_menu) {
-            var tmp = t_menu[t];
-            var link = "";
-            switch (tmp.type) {
-            case "link":
-                a[t] = {
-                    name: tmp.name,
-                    link: "http://" + tmp.link,
-                    tpk_smenu: {},
-                    type: tmp.type
-                };
-                break;
-            case "in-web":
-                a[t] = {
-                    name: tmp.name,
-                    link: tmp.link,
-                    tpk_smenu: {},
-                    type: tmp.type
-                };
-                break;
-            case "list":
-            case "menu":
-                a[t] = {
-                    name: tmp.name,
-                    link: "",
-                    tpk_smenu: {},
-                    type: tmp.type
-                };
-                //s_menu_list(a, t, ts, tmp);
-                $.ajax({
-                    url: 'data/' + tmp.link + ".csv",
-                    cache: false,
-                    type: "get",
-                    async: false,
-                    dataType: 'text',
-                    success: function (result) {
-                        var tpk_smenu = {};
-                        var ts_menu = get_csv(result, ["name", "link", "context", "page", "image"]);
-                        for (ts in ts_menu) {
-                            var tmp = ts_menu[ts];
-                            var lk = "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmp.page;
-                            a[t]["tpk_smenu"][ts] = {
-                                link: lk,
-                                name: tmp.name,
-                                image: tmp.image,
-                                context: {}
-                            };
-                            s_menu_list(a, t, ts, tmp);
-                        }
-                    }
-                });
-
-                break;
-            }
-        }
-        $scope.tpk_menub = a;
-
-
-
-    })
-
-
-})
-tpk.controller("tpk_public", function ($scope, $http) {
+tpk.controller("tpk_public", function ($scope) {
     active_page();
     $scope.upg = tpk_url;
-    var htmla = "data/public/" + usearch['sub'] + ".html";
+    $scope.func_html = "data/public/" + usearch['sub'] + ".html";
+})
+tpk.controller("tpk_sub-menu", function ($scope, $http) {
     var t = [];
     $http.get("data/sub_menu/" + usearch['context'] + ".csv").success(function (data) {
         var t = get_csv(data, ["name", "url"]);
@@ -278,8 +228,7 @@ tpk.controller("tpk_public", function ($scope, $http) {
             })
         }
         if (usearch['sub'] == undefined || usearch['sub'] == "") {
-            a[0]['isActive'] = true;
-            htmla = "data/public/" + a[0]['select'] + ".html";
+            location.href = a[0]['url'];
         } else {
             for (i in a) {
                 if (a[i]['select'] == usearch['sub']) {
@@ -288,11 +237,11 @@ tpk.controller("tpk_public", function ($scope, $http) {
             }
         }
         $scope.sub_menu = a;
-        $scope.func_html = htmla;
-    });
+    })
+    $scope.func_html = "data/" + usearch['context'] + ".html";
 
-})
 
+});
 
 tpk.controller("tpk-photo-menu", function ($scope, $http) {
     var t = [];
@@ -302,6 +251,7 @@ tpk.controller("tpk-photo-menu", function ($scope, $http) {
         },
     }).success(function (allText) {
         photo = get_csv(allText, ["image", "name", "sub"]);
+        console.log(photo[0]["sub"])
         if (usearch['sub'] == undefined) {
             photo[0]['isActive'] = true;
         } else {
