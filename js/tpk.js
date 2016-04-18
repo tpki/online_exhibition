@@ -315,13 +315,17 @@ $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html",fu
         if(img.width>img.height){
             if(img.width>900){
                 width="900";
+                height=img.height/(img.width/width)
             }else{
-                width=img.width
+                width=img.width;
+                height=img.height;
             }
         }else{
             if(img.height>600){
                 height="600";
+                width=img.width/(img.height/height);
             }else{
+                width=img.width;
                 height=img.height
             }
             
