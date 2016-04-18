@@ -56,7 +56,7 @@ function s_menu_ajax(a, index, tmp) {
         url: 'data/' + tmp.link + ".csv",
         cache: false,
         type: "get",
-        async: true,
+        async: false,
         dataType: 'text',
         success: function (result) {
             var tpk_smenu = {};
