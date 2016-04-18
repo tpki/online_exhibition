@@ -97,7 +97,7 @@ tpk.directive('imageonload', function () {
                 var aa = $(this).attr("src");
                 var img = new Image();
                 img.src = aa;
-                $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
+            $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
                     var width, height;
                     if (img.width > img.height) {
                         if (img.width > 900) {
@@ -128,9 +128,8 @@ tpk.directive('imageonload', function () {
 
     }
 
-});
+})
 tpk.controller("tpk_all", function ($scope, $http) {
-
     $("#tpk_show_modal").hide();
     var a = Array();
     $http.get("data/m-menu.csv").success(function (data) {
@@ -164,7 +163,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
                     tpk_smenu: {},
                     type: tmp.type
                 };
-                s_menu_ajax(a, t, tmp,$scope);
+                s_menu_ajax(a, t, tmp);
                 //                       
 
                 break;

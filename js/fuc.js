@@ -70,7 +70,6 @@ function s_menu_ajax(a, index, typea,scope) {
                     image: tmp.image,
                     context: {}
                 };
-                scope.tpk_menu=a;
                 s_menu_list(a, index, ts, tmp,scope);
             }
         }
@@ -94,7 +93,7 @@ function s_menu_list(a, index, s_menu_index, tmp,scope) {
                 a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
 
             }
-           scope.tpk_menu=a;
+           
         }
     })
 }
