@@ -367,5 +367,3 @@ tpk.controller("vidoe",function ($scope,$http){
     
     
 })
-
-
