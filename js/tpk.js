@@ -326,7 +326,7 @@ $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html",fu
                 
             }
             
-        } $("#show_image_c").attr({"src":aa,width:width,height:height});
+        } $("#show_image_c").attr({"src":"image/"+aa,width:width,height:height});
     
 })
            
