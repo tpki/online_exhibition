@@ -164,7 +164,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
                     tpk_smenu: {},
                     type: tmp.type
                 };
-                s_menu_ajax(a, t, tmp);
+                s_menu_ajax(a, t, tmp,$scope);
                 //                       
 
                 break;

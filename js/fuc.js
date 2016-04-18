@@ -51,7 +51,7 @@ function newimage(image, srcProperty) {
 
 }
 
-function s_menu_ajax(a, index, typea) {
+function s_menu_ajax(a, index, typea,scope) {
     //console.log(index)
     $.ajax({
         url: 'data/' + typea.link + ".csv",
@@ -70,12 +70,13 @@ function s_menu_ajax(a, index, typea) {
                     image: tmp.image,
                     context: {}
                 };
-                s_menu_list(a, index, ts, tmp);
+                scope.tpk_menu=a;
+                s_menu_list(a, index, ts, tmp,scope);
             }
         }
     });
 }
-function s_menu_list(a, index, s_menu_index, tmp) {
+function s_menu_list(a, index, s_menu_index, tmp,scope) {
     $.ajax({
         url: 'data/sub_menu/' + tmp.context + ".csv",
         cache: false,
@@ -93,7 +94,7 @@ function s_menu_list(a, index, s_menu_index, tmp) {
                 a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
 
             }
-            console.log(a);
+           scope.tpk_menu=a;
         }
     })
 }
