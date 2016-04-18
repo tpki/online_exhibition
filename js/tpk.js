@@ -309,7 +309,7 @@ tpk.controller("tpk_photo",function ($scope,$http,$location){
         if(t){
             var aa=image;
                 var img =new Image();
-                img.src=aa;
+                img.src="image/"+aa;
 $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html",function (){
     var width,height;
         if(img.width>img.height){
@@ -323,10 +323,10 @@ $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html",fu
                 height="600";
             }else{
                 height=img.height
-                
             }
             
-        } $("#show_image_c").attr({"src":"image/"+aa,width:width,height:height});
+        } 
+    $("#show_image_c").attr({"src":"image/"+aa,width:width,height:height});
     
 })
            
