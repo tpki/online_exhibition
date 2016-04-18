@@ -127,7 +127,7 @@ tpk.controller("tpk_all",function ($scope,$http){
                  case "menu":
                     a[t]={name:tmp.name,link:"",tpk_smenu:{},type:tmp.type};
                     //s_menu_ajax(a,t,tmp.link);
-                    b=
+                   
                     $.ajax({
                         url : 'data/'+tmp.link+".csv",
                         cache : false, 
@@ -141,24 +141,24 @@ tpk.controller("tpk_all",function ($scope,$http){
                                    var tmp=ts_menu[ts];
                                    var lk="reindex.html?upg="+tmp.link+"&context="+tmp.context+"&sub="+tmp.page;
                                  a[t]["tpk_smenu"][ts]={link:lk,name:tmp.name,image:tmp.image,context:{}}; 
-                                   $.ajax({
-                                    url : 'data/sub_menu/'+tmp.context+".csv",
-                                    cache : false, 
-                                    async : false,
-                                    type : "get",
-                                    dataType : 'text',
-                                    success : function (tts){
-                                       var tpks_smenu={};
-                                     var tss_menu=get_csv(tts,["name","page"]);
-                                       for(tss in tss_menu){
-                                           var tmpa=tss_menu[tss];
-                                           var lo={name:tmpa['name'],url:"reindex.html?upg="+tmp.link+"&context="+tmp.context+"&sub="+tmpa.page};
-                                           a[t]["tpk_smenu"][ts]['context'][tss]=lo;
-                                           
-                                       }
-                                       
-                                   }
-                                    })
+//                                   $.ajax({
+//                                    url : 'data/sub_menu/'+tmp.context+".csv",
+//                                    cache : false, 
+//                                    async : false,
+//                                    type : "get",
+//                                    dataType : 'text',
+//                                    success : function (tts){
+//                                       var tpks_smenu={};
+//                                     var tss_menu=get_csv(tts,["name","page"]);
+//                                       for(tss in tss_menu){
+//                                           var tmpa=tss_menu[tss];
+//                                           var lo={name:tmpa['name'],url:"reindex.html?upg="+tmp.link+"&context="+tmp.context+"&sub="+tmpa.page};
+//                                           a[t]["tpk_smenu"][ts]['context'][tss]=lo;
+//                                           
+//                                       }
+//                                       
+//                                   }
+//                                    })
                                } 
                             }
                         });
@@ -367,3 +367,5 @@ tpk.controller("vidoe",function ($scope,$http){
     
     
 })
+
+
