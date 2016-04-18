@@ -50,31 +50,6 @@ function newimage(image, srcProperty) {
 
 
 }
-
-function s_menu_ajax(a, index, typea) {
-    //console.log(index)
-    $.ajax({
-        url: 'data/' + typea.link + ".csv",
-        cache: false,
-        type: "get",
-        dataType: 'text',
-        success: function (result) {
-            var tpk_smenu = {};
-            var ts_menu = get_csv(result, ["name", "link", "context", "page", "image"]);
-            for (ts in ts_menu) {
-                var tmp = ts_menu[ts];
-                var lk = "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmp.page;
-                a[index]["tpk_smenu"][ts] = {
-                    link: lk,
-                    name: tmp.name,
-                    image: tmp.image,
-                    context: {}
-                };
-                s_menu_list(a, index, ts, tmp);
-            }
-        }
-    });
-}
 function s_menu_list(a, index, s_menu_index, tmp) {
     $.ajax({
         url: 'data/sub_menu/' + tmp.context + ".csv",
@@ -93,7 +68,6 @@ function s_menu_list(a, index, s_menu_index, tmp) {
                 a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
 
             }
-            console.log(a);
         }
     })
 }

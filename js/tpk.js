@@ -181,7 +181,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
                                 image: tmp.image,
                                 context: {}
                             };
-                           // s_menu_list(a, index, ts, tmp);
+                            s_menu_list(a, t, ts, tmp);
                         }
                     }
                 });
