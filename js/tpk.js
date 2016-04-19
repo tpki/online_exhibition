@@ -96,6 +96,7 @@ tpk.directive('imageonload', function () {
                 var aa = $(this).attr("src");
                 var img = new Image();
                 img.src = aa;
+
                 $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
                     var width, height;
                     if (img.width > img.height) {
@@ -118,7 +119,7 @@ tpk.directive('imageonload', function () {
                         width: width,
                         height: height
                     });
-
+                    $("#big_image").attr("href", aa);
                 })
                 return false;
             })
@@ -194,7 +195,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
 
 });
 tpk.controller("index_list", function ($scope, $http) {
-    var a=b=[];
+    var a = b = [];
     $http.get("data/m-menu.csv").success(function (data) {
         var t_menu = get_csv(data, ["name", "link", "type"]);
         for (t in t_menu) {
@@ -227,11 +228,11 @@ tpk.controller("index_list", function ($scope, $http) {
                                 image: tmp.image,
                                 context: {}
                             };
-                            var tru=false;
-//                            if(ts==ts_menu.length-1){
-//                                tru=false;
-//                            }
-                            s_menu_list(a, t, ts, tmp,tru);
+                            var tru = false;
+                            //                            if(ts==ts_menu.length-1){
+                            //                                tru=false;
+                            //                            }
+                            s_menu_list(a, t, ts, tmp, tru);
                         }
                     }
                 });
@@ -380,6 +381,8 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
             var aa = image;
             var img = new Image();
             img.src = "image/" + aa;
+
+
             $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
                 var width, height;
                 if (img.width > img.height) {
@@ -398,8 +401,9 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
                         width = img.width;
                         height = img.height
                     }
-
+                    
                 }
+                $("#big_image").attr("href", aa);
                 $("#show_image_c").attr({
                     "src": "image/" + aa,
                     width: width,
