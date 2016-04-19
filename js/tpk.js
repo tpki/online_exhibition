@@ -97,7 +97,7 @@ tpk.directive('imageonload', function () {
                 var img = new Image();
                 img.src = aa;
 
-                $("#tpk_show_modal").show().find(".show_location").load("page/imageshow.html", function () {
+                $("#tpk_show_modal").show().find(".show_location").load("page/imageshow2.html", function () {
                     var width, height;
                     if (img.width > img.height) {
                         if (img.width > 900) {
@@ -403,7 +403,7 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
                     }
                     
                 }
-                $("#big_image").attr("href","image/" + aa);
+               
                 $("#show_image_c").attr({
                     "src": "image/" + aa,
                     width: width,
