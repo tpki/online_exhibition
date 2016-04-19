@@ -403,7 +403,7 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
                     }
                     
                 }
-                $("#big_image").attr("href", aa);
+                $("#big_image").attr("href","image/" + aa,);
                 $("#show_image_c").attr({
                     "src": "image/" + aa,
                     width: width,
