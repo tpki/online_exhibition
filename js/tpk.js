@@ -80,14 +80,12 @@ tpk.directive('imageonload', function () {
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
-            element.click(function () {
+            element.bind("click", function () {
                 $("#tpk_show_modal").hide();
                 $(".show_location").html("");
             })
         }
-
     }
-
 }).directive("lightimage", function () {
     return {
         restrict: "A",
@@ -127,6 +125,23 @@ tpk.directive('imageonload', function () {
         }
 
     }
+
+}).directive("keyupclose", function () {
+    return {
+        restrict: "A",
+        link: function (scope, element, attr) {
+
+            $(this).keyup(function (e) {
+                if (e.keyCode == 27) {
+                    $("#tpk_show_modal").hide().find(".show_location").html("");
+                }
+
+            })
+
+        }
+
+    }
+
 
 })
 tpk.controller("tpk_all", function ($scope, $http) {
@@ -401,9 +416,9 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
                         width = img.width;
                         height = img.height
                     }
-                    
+
                 }
-               
+
                 $("#show_image_c").attr({
                     "src": "image/" + aa,
                     width: width,

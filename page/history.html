@@ -1,0 +1,30 @@
+<script src="library/jquery/pdfobject.js"></script>
+<style>
+.pdfobject-container { height: 700px;}
+.pdfobject { border: 1px solid #666; }
+    #example1{
+        margin-top:20px;
+        
+    }
+</style>
+
+   <div>
+    
+   <div id="example1"></div>
+    
+    
+</div>
+<script>
+   var  options = {
+	pdfOpenParams: {
+		navpanes: 0,
+		toolbar: 0,
+		statusbar: 0,
+		view: "FitV",
+		pagemode: "thumbs",
+		page: 2
+	},
+	forcePDFJS: true,
+	PDFJS_URL: "page/web/viewer.html"
+};
+    PDFObject.embed("../../data/整本四校_高解析0414.pdf", "#example1",options);</script>
