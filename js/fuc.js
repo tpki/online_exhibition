@@ -82,7 +82,7 @@ function s_menu_list(a, index, s_menu_index, tmp,tru) {
         url: 'data/sub_menu/' + tmp.context + ".csv",
         cache: false,
         type: "get",
-        async: tru,
+        async: false,
         dataType: 'text',
         success: function (tts) {
             var tpks_smenu = {};
@@ -93,8 +93,8 @@ function s_menu_list(a, index, s_menu_index, tmp,tru) {
                     name: tmpa['name'],
                     url: "reindex.html?upg=" + tmp.link + "&context=" + tmp.context + "&sub=" + tmpa.page
                 };
-                a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
-
+                $("#try1").append("<li>a</li>")
+                //a[index]["tpk_smenu"][s_menu_index]['context'][tss] = lo;
             }
         }
     })

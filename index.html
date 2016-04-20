@@ -117,14 +117,14 @@
                     <blockquote class='bs-s-bl-color' style="margin-top:20px;">
                         {{a.name}}
                     </blockquote>
-                    <div class=" tpk-class" ng-repeat="smenu in a.tpk_smenu">
+                    <div class=" tpk-class" ng-repeat="smenu in a.tpk_smenu" loadafter>
                         <div class='class-img'>
                             <p>{{smenu.name}}</p>
                             <img ng-src="image/{{smenu.image}}" width="350px" class='img-thumbnail' height="80px">
                         </div>
                         <div class='class-context'>
-                            <ul class='list-unstyled'>
-                                <li ng-repeat="context in smenu.context"><a ng-href="{{context.url}}">{{context.name}}</a></li>
+                            <ul class='list-unstyled' >
+<!--                                <li ng-repeat="context in smenu.context"><a ng-href="{{context.url}}">{{context.name}}</a></li>-->
 
                             </ul>
                         </div>
