@@ -109,7 +109,7 @@ html,body{
     z-index: 0;
 }
 #tpk_banner{
-    height:200px; 
+    height:160px; 
     background-color:darkgray;
 }
 .show_image{
@@ -336,5 +336,55 @@ padding-left:20px;
 }
 #otherimage li{
     margin-top:20px;
+    
+}
+.image-sm{
+    width:220px;
+    height:auto;
+}
+.image-sm img{
+    width:200px;
+    margin:10px;
+    float:left;
+}
+.image-sm p,.image-sm div,.full-image div,.full-image p{
+    float:left;
+    font-size: 12px;
+    text-align: left;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+    
+}
+.full-image{
+    width:100%;
+    clear: both;
+}
+
+.full-image img{
+    max-width:100%;
+}
+#tpk-history-list{
+    padding:0;
+    margin:0;
+    font-size: 18px;
+    list-style: none;
+    width: 100%;
+    
+}
+#tpk-history-list>li{
+    
+    margin-top:20px;
+    padding:10px;
+    
+}
+#banner_image{
+    background-image: url(../image/banner.jpg);
+    height: 200px;
+    background-size: 100% 100%;
+    
     
 }
