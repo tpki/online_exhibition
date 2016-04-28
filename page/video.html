@@ -1,0 +1,20 @@
+
+<div class="col-xs-12" style="margin-top:20px;" ng-controller="video">
+<!--    -->
+    <div class="col-xs-10 col-xs-offset-1" style="border: 2px solid #000;margin-top:20px;" ng-repeat="vi in vidoe">
+       <div class="row" style="padding:10px;">
+        <div class='col-xs-3' >
+            <a ng-href="{{vi.link}}" data-type="{{vi.type}}" vidoelink style="border:0"> <img src="{{vi.image}}" class='img-thumbnail' width="100%"></a>
+        </div>
+        <div class='col-xs-offset-1 col-xs-8'>
+            <blockquote>{{vi.title}}</blockquote>
+            <p>
+                {{vi.context}}
+            </p>
+            <div class='col-xs-12 text-right'><a ng-href="{{vi.link}}" data-type="{{vi.type}}" vidoelink>Link</a></div>
+        </div>
+        </div>
+    </div>
+    
+    
+</div>
