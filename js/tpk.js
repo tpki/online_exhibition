@@ -149,7 +149,7 @@ tpk.directive('imageonload', function () {
         //if(scope.$last){
 
         var name = scope.smenu.csv;
-        var tmp=scope.smenu
+        var tmp = scope.smenu
         var k = [];
         //element.find(".class-context>ul").append("<li>a</li>");
         $.ajax({
@@ -165,8 +165,7 @@ tpk.directive('imageonload', function () {
                         name: tmpa['name'],
                         url: "reindex.html?upg=" + tmp.page + "&context=" + name + "&sub=" + tmpa.page
                     };
-                    //k[ts] = lo;
-                     element.find(".class-context>ul").append("<li><a href='"+lo['url'] +"'>"+lo['name']+"</a></li>");
+                    element.find(".class-context>ul").append("<li><a href='" + lo['url'] + "'>" + lo['name'] + "</a></li>");
                 }
             }
         })
@@ -272,7 +271,7 @@ tpk.controller("index_list", function ($scope, $http) {
                                 image: tmp.image,
                                 context: {},
                                 csv: tmp.context,
-                                page:tmp.link
+                                page: tmp.link
                             };
                             var tru = false;
                         }
@@ -463,7 +462,6 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
 tpk.controller("video", function ($scope, $http) {
 
     var csv = (usearch['sub'] == "" || usearch['sub'] == undefined) ? usearch['context'] : usearch['sub'];
-    console.log(usearch['sub']);
     $http.get("data/" + csv + ".csv", {
         headers: {
             'Content-Type': undefined
