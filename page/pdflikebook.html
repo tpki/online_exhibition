@@ -25,8 +25,8 @@
     }
 
    body{
-	overflow:hidden;
-	background-color:#fcfcfc;
+	
+	background-color:#020202;
 	margin:0;
 	padding:0;
 }
@@ -129,9 +129,10 @@ margin: auto;
                         // Auto center this flipbook
                         autoCenter: true,
                         display: 'double'
-
                     });
-
+                   var width= $(window).width();
+                    //console.log(width);
+                    $(".flipbook-viewport>.container").css("margin-left",(width-1100)/2);
                 }
 
 
@@ -144,7 +145,7 @@ margin: auto;
         var t ="";
         $http.get("../data/history/"+usearch['pdf']+".csv").success(function (data){
             var tm=get_csv(data,["image"]);
-            console.log(tm);
+            
             $scope.t=tm;
         })
        
