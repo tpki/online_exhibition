@@ -1,104 +1,171 @@
 <style>
-/*
     #tpk-history-list {
         margin: auto;
-        
     }
-    #tpk-history-list>li>ul{
-        position: absolute;
-        display: none;
-}
-    #tpk-history-list > li{
-        margin-left:auto;
-        margin-right:auto;
-        
+    
+    #tpk-history-list>li>ul {
+        margin-left: 10px;
+        list-style: none;
+/*        display: none;*/
     }
-    #tpk-history-list > li:nth-child(even){
-        margin-left:-100px;
-        
-        
+    
+    #tpk-history-list > li {
+        margin-left: auto;
+        margin-right: auto;
+        clear: both;
     }
-*/
+    
+    #tpk-history-list > li>ul>li>a {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    #tpk-history-list > li>ul>li>a:first-child {
+        border-right: 1px solid #000;
+    }
 </style>
 
+<script>
+//    $(function () {
+//        $("#tpk-history-list>li").hover(function () {
+//            $(this).find("ul").slideDown(500);
+//
+//        }, function () {
+//            $(this).find("ul").slideUp(200);
+//
+//        })
+//    })
+</script>
 <div class='row container' style="padding-top:30px;">
-    <div class="col-xs-10 col-xs-offset-1">
-        <div class="col-xs-6">
+    <div class="col-xs-12 col-xs-offset-1">
+        <div class="col-xs-4">
             <img src="image/history/home.png" alt="" width="300px">
         </div>
-        <div class='col-xs-6'>
-            <ul id="tpk-history-list" class=''>
+        <div class='col-xs-7'>
+            <ul id="tpk-history-list" class='col-xs-12'>
                 <li style="border-left:10px solid #555">序言
                     <ul>
                         <li>
-                           <a href="page/pdflikebook.html?pdf=sequence" target="_blank">序言</a> 
+
+                            <a href="page/pdflikebook.html?pdf=sequence" target="_blank">序言</a>
+
+                            <a href="data/history/sequence.pdf" target="_blank">PDF</a>
                         </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #B0B">史實
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part1" target="_blank">| 第一章| 行政執行制度之變革</a></li>
-                        <li><a href="page/pdflikebook.html?pdf=part2" target="_blank">| 第二章| 行政執行專責機關之成立</a></li>
+                        <li>
+                            <a href="page/pdflikebook.html?pdf=part1" target="_blank">| 第一章| 行政執行制度之變革</a>
+                          <a href="data/history/peart1.pdf" target="_blank">PDF</a>
+                        </li>
+                        <li>
+                            <a href="page/pdflikebook.html?pdf=part2" target="_blank">| 第二章| 行政執行專責機關之成立</a>
+                            <a href="data/history/part2.pdf" target="_blank">PDF</a>
+                           
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #0BB">舵手
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part3" target="_blank">| 第三章| 歷任署長</a></li>
+                        <li>
+                           <a href="page/pdflikebook.html?pdf=part3" target="_blank">| 第三章| 歷任署長</a>
+                            <a href="data/history/part3.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #f3a03e">精銳團隊
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part4" target="_blank">| 第四章| 各組室業務回顧與現況</a></li>
+                        <li>
+                          <a href="page/pdflikebook.html?pdf=part4" target="_blank">| 第四章| 各組室業務回顧與現況</a>
+                            <a href="data/history/part4.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #08d">奠基與創新
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part5" target="_blank">| 第五章| 重要制度之建立</a></li>
-                        <li><a href="page/pdflikebook.html?pdf=part6" target="_blank">| 第六章| 重要制度之創新</a></li>
+                        <li>
+                           <a href="page/pdflikebook.html?pdf=part5" target="_blank">| 第五章| 重要制度之建立</a><a href="data/history/part5.pdf" target="_blank">PDF</a>
+                        </li>
+                        <li>
+                            <a href="page/pdflikebook.html?pdf=part6" target="_blank">| 第六章| 重要制度之創新</a><a href="data/history/part6.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #05a">斐然績效
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part7" target="_blank">| 第七章| 執行績效</a></li>
+                        <li>
+                            <a href="page/pdflikebook.html?pdf=part7" target="_blank">| 第七章| 執行績效</a><a href="data/history/part7.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #ff7109">公平正義
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part8" target="_blank">| 第八章| 彰顯公平正義之指標性案件</a></li>
+                        <li>
+                          
+                                <a href="page/pdflikebook.html?pdf=part8" target="_blank">| 第八章| 彰顯公平正義之指標性案件</a><a href="data/history/part8.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #fa9292">關懷弱勢
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part9" target="_blank">| 第九章| 執行有愛 公義無礙</a></li>
+                        <li>
+                          
+                                <a href="page/pdflikebook.html?pdf=part9" target="_blank">| 第九章| 執行有愛 公義無礙</a><a href="data/history/part9.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #F11">你我同行
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part10" target="_blank">| 第十章| 老將記述</a></li>
-                        <li><a href="page/pdflikebook.html?pdf=part11" target="_blank">| 第十一章| 深耕者言</a></li>
-                        <li><a href="page/pdflikebook.html?pdf=part12" target="_blank">| 第十二章| 新銳的話</a></li>
+                        <li>
+                            <a href="page/pdflikebook.html?pdf=part10" target="_blank">| 第十章| 老將記述</a><a href="data/history/part10.pdf" target="_blank">PDF</a>
+                        </li>
+                        <li>
+                            
+                                <a href="page/pdflikebook.html?pdf=part11" target="_blank">| 第十一章| 深耕者言</a><a href="data/history/part11.pdf" target="_blank">PDF</a>
+                        </li>
+                        <li>
+                           
+                                <a href="page/pdflikebook.html?pdf=part12" target="_blank">| 第十二章| 新銳的話</a><a href="data/history/part12.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #0D0">掌聲響起
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part13" target="_blank">| 第十三章| 期許與嘉勉</a></li>
+                        <li>
+                            
+                                <a href="page/pdflikebook.html?pdf=part13" target="_blank">| 第十三章| 期許與嘉勉</a><a href="data/history/part13.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #ed5949">出版記事
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=part14" target="_blank">| 第十四章| 本署出版品簡介</a></li>
-                        <li><a href="page/pdflikebook.html?pdf=part15" target="_blank">| 第十五章| 本署大事記</a></li>
+                        <li>
+                            
+                                <a href="page/pdflikebook.html?pdf=part14" target="_blank">| 第十四章| 本署出版品簡介</a><a href="data/history/part14.pdf" target="_blank">PDF</a>
+                        </li>
+                        <li>
+                            
+                                <a href="page/pdflikebook.html?pdf=part15" target="_blank">| 第十五章| 本署大事記</a><a href="data/history/part15.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
                 <li style="border-left:10px solid #A00">編輯後記
                     <ul>
-                        <li><a href="page/pdflikebook.html?pdf=editafter" target="_blank">編輯後記</a></li>
+                        <li>
+                          
+                                <a href="page/pdflikebook.html?pdf=editafter" target="_blank">編輯後記</a><a href="data/history/editafter.pdf" target="_blank">PDF</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
-
-
         </div>
+    </div>
+    <div class="col-xs-12">
+        <div class=' fishBone'></div>
+
     </div>
 
 </div>

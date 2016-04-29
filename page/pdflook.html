@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>署史</title>
+    <meta name="viewport" content="width = 1050, user-scalable = no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="../js/fuc.js"></script>
+    <script src="../js/active.js"></script>
+    <script src="../js/tpk.js"></script>
+    <script src="../library/jquery/pdfobject.js"></script>
+      
+</head>
+<style>
+    body{
+        padding:0;
+        margin:0;
+        
+    }
+    .pdfobject-container {
+        height: 100%;
+    }
+    
+    .pdfobject {
+        border: 1px solid #666;
+    }
+</style>
+<script>
+    $(function () {
+        var options = {
+            pdfOpenParams: {
+                navpanes: 0,
+                toolbar: 0,
+                statusbar: 0,
+                view: "FitV",
+                pagemode: "thumbs",
+                page: 1
+            },
+            forcePDFJS: true,
+            PDFJS_URL: "web/viewer.html"
+        };
+        PDFObject.embed("../../data/history/part2.pdf", "#example1", options);
+    })
+</script>
+<body>
+    <div id="example1"></div>
+</body>
+</html>
