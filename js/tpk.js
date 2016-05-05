@@ -187,10 +187,11 @@ tpk.controller("tpk_all", function ($scope, $http) {
             case "link":
                 a[t] = {
                     name: tmp.name,
-                    link: "http://" + tmp.link,
+                    link: tmp.link,
                     tpk_smenu: {},
                     type: tmp.type
                 };
+                    
                 break;
             case "in-web":
                 a[t] = {
