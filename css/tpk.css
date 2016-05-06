@@ -44,6 +44,8 @@ html,body{
     float:left;
     margin-left:10px;
     padding:10px;
+    min-width: 130px;
+    text-align: center;
 }
 .menu-list>li a{
     color:black;
@@ -59,7 +61,7 @@ html,body{
     background:#555;
     z-index: 999;
     float:left;
-    height:200px;
+    min-height:200px;
     display: none;
    
 }
@@ -69,13 +71,14 @@ html,body{
     
 }
 .sub-m-list{
-    margin-left:100px;
+    margin-left:110px;
      color:azure;
+    
 }
 .sub-m{
     float:left;
     margin-left:10px;
-    width:100px;
+    width:130px;
     padding:10px;
     text-align: center;
     

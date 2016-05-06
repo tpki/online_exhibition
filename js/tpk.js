@@ -16,6 +16,17 @@ tpk.directive('imageonload', function () {
             });
         }
     };
+}).directive("imageerror", function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('error', function () {
+                console.log("a");
+                $(element).attr("src", "image/TPK.png");
+            });
+        }
+    };
+
 }).directive('menuhover', function () {
 
     return {
@@ -65,7 +76,7 @@ tpk.directive('imageonload', function () {
                     var context = "<iframe width='100%' height='600px' src='" + element.attr("href") + "' frameborder='0' allowfullscreen></iframe>"
                     $(".show_location").html(context);
 
-                } else if (type == 'list') {
+                } else if (type == 'folder') {
                     location.href = "?upg=" + usearch['upg'] + "&context=" + usearch['context'] + "&sub=" + element.attr("href");
 
                 }
@@ -171,6 +182,33 @@ tpk.directive('imageonload', function () {
         })
 
     }
+}).directive("showhover", function () {
+    return function (scope, element, attrs) {
+        element.hover(function () {
+            $(this).find("img").attr("src", "image/now_hover.png");
+
+
+        }, function () {
+            $(this).find("img").attr("src", "image/show.png");
+
+        })
+
+    }
+
+}).directive("onlinehover", function () {
+    return function (scope, element, attrs) {
+        element.hover(function () {
+            $(this).find("img").attr("src", "image/online_show.png");
+
+
+        }, function () {
+            $(this).find("img").attr("src", "image/online_hover.png");
+
+        })
+
+    }
+
+
 })
 tpk.controller("tpk_all", function ($scope, $http) {
     $("#tpk_show_modal").hide();
@@ -191,7 +229,7 @@ tpk.controller("tpk_all", function ($scope, $http) {
                     tpk_smenu: {},
                     type: tmp.type
                 };
-                    
+
                 break;
             case "in-web":
                 a[t] = {
@@ -461,16 +499,42 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
     }
 })
 tpk.controller("video", function ($scope, $http) {
-
-    var csv = (usearch['sub'] == "" || usearch['sub'] == undefined) ? usearch['context'] : usearch['sub'];
+    var csv = "";
+    var show = false;
+    if (usearch['sub'] == "" || usearch['sub'] == undefined) {
+        csv = usearch['context'];
+    } else {
+        csv = usearch['sub'];
+        show = true;
+    }
+    $scope.show = show;
     $http.get("data/" + csv + ".csv", {
         headers: {
             'Content-Type': undefined
         },
     }).success(function (text) {
         var vidoe = get_csv(text, ["image", "title", "context", "link", "type"]);
+        $.each(vidoe, function (i, e) {
+            var t = "";
+            var sh = false;
+            switch (e['type']) {
+            case "youtube":
+                t = "Youtube";
+                break;
+            case "in_video":
+                t = "內部影片";
+                break;
+            case "folder":
+                t = "影音群組";
+                sh = true;
+                break;
+            }
+            vidoe[i]['type_n'] = t;
+            vidoe[i]['folder'] = sh;
+        })
         var tp = {};
         $scope.vidoe = vidoe;
+
     });
 
 
