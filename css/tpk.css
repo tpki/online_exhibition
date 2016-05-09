@@ -5,6 +5,7 @@ html,body{
     position: relative;  
     background-color:#4B3C29;
 }
+/*
 .tpk-header{
     height:auto;
 }
@@ -83,6 +84,7 @@ html,body{
     text-align: center;
     
 }
+*/
 /*---------------------*/
 .index_show_image{
     max-width: 100%;
@@ -386,6 +388,4 @@ padding-left:20px;
     background-image: url(../image/banner.jpg);
     height: 200px;
     background-size: 100% 100%;
-    
-    
 }

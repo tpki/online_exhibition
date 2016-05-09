@@ -22,6 +22,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/tpk-index.css">
+    <link rel="stylesheet" href="css/menu.css">
 
 </head>
 
@@ -49,7 +50,7 @@
                                     <a href="http://www.tpk.moj.gov.tw/mp030.html">法務部行政執行署</a></li>
                             </ul>
                         </div>
-                        <div class="tpk-menu text-right col-xs-12 ">
+                        <div class="tpk-menu text-right ">
                             <ul class="menu-list list-inline">
                                 <li ng-repeat="menu in tpk_menu" menuonhover><a href="{{menu.link}}">{{menu.name}}</a></li>
                             </ul>
@@ -63,7 +64,8 @@
         <div class="ss-menu">
             <div class='cation'>
                 <div class="row ">
-                    <div class="col-xs-12 sub-m-list">
+                   <div style="width:10%;float:left;height:1px"></div>
+                    <div class=" sub-m-list">
                         <div ng-repeat="menu in tpk_menu" class='sub-m'>
                             <ul class="list-unstyled">
                                 <li ng-repeat='s_menu in menu.tpk_smenu'><a href="{{s_menu.link}}">{{s_menu.name}}</a></li>
@@ -79,7 +81,7 @@
 
     <div class="col-xs-12 banner-color">
         <div class="col-xs-offset-1 col-xs-10" id="banner">
-            <img src="image/ban.png" imageonload>
+            <img src="image/ban.png" width="100%" imageonload>
         </div>
     </div>
     <div class='w100  box-shadow'>
@@ -105,7 +107,7 @@
     <div class="col-xs-12">
         <div class="col-xs-offset-1 col-xs-10">
             <div id='new-exhibition'>
-                <div ng-include="'page/information_now.html'"></div>
+<!--                <div ng-include="'page/information_now.html'"></div>-->
                 <!--                   替換網頁                -->
 
                 <!--============================================-->
@@ -121,7 +123,7 @@
                     <div class=" tpk-class" ng-repeat="smenu in a.tpk_smenu" loadafter>
                         <div class='class-img'>
                             <p>{{smenu.name}}</p>
-                            <img ng-src="image/{{smenu.image}}" width="350px" class='img-thumbnail' height="80px">
+                            <img ng-src="image/{{smenu.image}}"  class='img-thumbnail' >
                         </div>
                         <div class='class-context'>
                             <ul class='list-unstyled'>
