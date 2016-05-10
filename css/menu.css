@@ -1,3 +1,30 @@
+
+@media (min-width: 768px){
+    .tpk-container{
+        width:100%;   
+    }   
+    .sub-m{
+        width:100px
+        
+    }
+    .menu-list>li{
+        width: 100px;
+        font-size: 13px;
+    }
+}
+@media (min-width: 1200px){
+    .tpk-container{
+        width:1170px   
+    }
+    .sub-m{
+         width:130px;
+        
+    }
+    .menu-list>li{
+        width: 130px;
+         font-size: 18px;
+    }
+}
 .cation{
     width:90%;
     padding-right: 15px;
@@ -44,7 +71,7 @@
 .sub-m{
     float:left;
     margin-left:10px;
-    width:130px;
+   
     padding:10px;
     text-align: center;
     
@@ -64,7 +91,7 @@
     float:left;
     margin-left:10px;
     padding:10px;
-    min-width: 130px;
+/*    min-width: 130px;*/
     text-align: center;
 }
 .menu-list>li a{
@@ -79,8 +106,6 @@
     display: none;
     
 }
-
-
 .tpk-title{
    
     padding-left:20px;
@@ -90,4 +115,30 @@
     font-size: 18px;
     position: absolute;
     bottom: 0;
+    
+}
+.list-menu{
+    background-color: #555;
+    list-style: none;
+    height: auto;
+    position:absolute;
+    right: 150px;
+    z-index:900;
+
+}
+.list-menu > li{
+    padding:20px;
+}
+.phone-list{
+    background-image: url(../image/phone-list.png);
+    background-size: 100% 100%;
+    width:30px;
+    height: 30px;
+}
+.tpk-container{
+    margin-right: auto;
+    margin-left:auto;
+    padding-top:15px;
+    padding-bottom: 15px;
+    
 }
