@@ -11,7 +11,13 @@
         width: 100px;
         font-size: 13px;
     }
+    .sub-list>li:last-child,  .menu-list>li:last-child{
+        display: none;
+        
+    }
+
 }
+
 @media (min-width: 1200px){
     .tpk-container{
         width:1170px   
@@ -23,6 +29,10 @@
     .menu-list>li{
         width: 130px;
          font-size: 18px;
+    }
+    .sub-list>li:last-child,  .menu-list>li:last-child{
+        display: block;
+        
     }
 }
 .cation{
@@ -138,7 +148,7 @@
 .tpk-container{
     margin-right: auto;
     margin-left:auto;
-    padding-top:15px;
+   
     padding-bottom: 15px;
     
 }

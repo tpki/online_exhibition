@@ -184,6 +184,7 @@ ul.line-menu>li>.text{
     width:170px;
 }
 .p-sub-menu{
+    top:0;
     position: absolute;
     float:left;
     width:170px;
