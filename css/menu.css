@@ -1,4 +1,3 @@
-
 @media (min-width: 768px){
     .tpk-container{
         width:100%;   
@@ -15,9 +14,14 @@
         display: none;
         
     }
-
+    .mobile-tpk{
+        display: block;
+    }
+    .tpk-bx{
+        display: none;
+        
+    }
 }
-
 @media (min-width: 1200px){
     .tpk-container{
         width:1170px   
@@ -31,10 +35,63 @@
          font-size: 18px;
     }
     .sub-list>li:last-child,  .menu-list>li:last-child{
+        display: block; 
+    }
+    .mobile-tpk{
+        display: none;
+    }
+    .tpk-bx{
         display: block;
         
     }
 }
+.phone-list{
+    width: 100%;
+    padding:0;
+    margin:0;
+    position: absolute;
+    z-index: 100;
+    top:0;
+    right: 0;
+    
+}
+.phone-menu{
+    background-color:beige;
+    color: azure;
+    width:130px;
+    position: absolute;
+    right: 50px;
+    z-index: 99999;
+    display: none;
+}
+.phone-menu>ul>li{
+    padding:10px;
+    margin-top:5px;
+    list-style: none; 
+}
+.phone-menu>ul>li>a{
+   text-decoration-line: none;
+    
+}
+.phone-s-menu{
+    padding:0;
+    margin:0;
+    width: 100%;
+    position: absolute;
+    top:0;
+      background-color: antiquewhite;
+    right: 0;
+    height: 100%;
+    display: none;
+}
+.phone-s-menu>li{
+  
+    padding:10px;
+    margin-top:5px;
+    list-style: none; 
+    
+}
+/*phone---------*/
 .cation{
     width:90%;
     padding-right: 15px;
@@ -139,16 +196,9 @@
 .list-menu > li{
     padding:20px;
 }
-.phone-list{
-    background-image: url(../image/phone-list.png);
-    background-size: 100% 100%;
-    width:30px;
-    height: 30px;
-}
+
 .tpk-container{
     margin-right: auto;
     margin-left:auto;
-   
     padding-bottom: 15px;
-    
 }

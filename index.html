@@ -52,6 +52,9 @@
         s.src = "http://widgets.amung.us/tab.js";
         document.getElementsByTagName("head")[0].appendChild(s);
     })();
+    if (navigator.userAgent.match("MSIE")) {
+        alert("建議使用Chrome、Firefox、Safari進行瀏覽");
+    }
 </script>
 
 <body ng-app="tpk" ng-controller="tpk_all" id="ng-app" class="ng-app">
@@ -62,8 +65,21 @@
         <div class='load-icon'>
         </div>
     </div>
+    <div class='mobile-tpk  phone-list'  phonelist>
+        <div ><img src="image/phone-list.png " class='right' alt="" width="50px"></div>
+        <div class='phone-menu'>
+            <ul class="menu-list ">
+                <li ng-repeat="menu in tpk_menu" phonemenuclick><a href="{{menu.link}}">{{menu.name}}</a>
+                    <ul class='phone-s-menu'>
+                       <li><div menuup>＜———</div></li>
+                        <li ng-repeat='s_menu in menu.tpk_smenu'><a href="{{s_menu.link}}">{{s_menu.name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
     <div id="header" menuhover>
-        <!--   -->
         <div class="col-xs-12" id='main-menu'>
             <div class='cation'>
                 <div class="row tpk-header">
@@ -77,6 +93,7 @@
                                 <li><a href="https://www.facebook.com/%E6%B3%95%E5%8B%99%E9%83%A8%E8%A1%8C%E6%94%BF%E5%9F%B7%E8%A1%8C%E7%BD%B2-1392910267613444/">FaceBook</a></li>
                                 <li>
                                     <a href="http://www.tpk.moj.gov.tw/mp030.html">法務部行政執行署</a></li>
+
                             </ul>
                         </div>
                         <div class="tpk-menu text-right tpk-bx">

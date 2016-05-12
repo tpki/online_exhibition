@@ -32,12 +32,15 @@ tpk.directive('imageonload', function () {
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
-            element.hover(function () {
-                    $(".ss-menu").slideDown(200).css("top", $("#main-menu").height());
-                },
-                function () {
-                    $(".ss-menu").slideUp(100);
-                });
+            
+            if (window.innerWidth > 1200) {
+                element.hover(function () {
+                        $(".ss-menu").slideDown(200).css("top", $("#main-menu").height());
+                    },
+                    function () {
+                        $(".ss-menu").slideUp(100);
+                    });
+            }
         }
     }
 }).directive("menuonhover", function () {
@@ -209,7 +212,35 @@ tpk.directive('imageonload', function () {
     }
 
 
+}).directive("phonemenuclick",function (){
+    return function (scope,element,attrs){
+        $(element).bind("click",function (){
+            if(scope.menu.type=='menu'||scope.menu.type=='list'){
+                $(this).find("ul.phone-s-menu").show();   
+            }
+            })
+    }
+}).directive("menuup",function (){
+    return function (scope,element,attrs){
+        $(element).bind("click",function (){
+            $(this).parents("ul.phone-s-menu").fadeOut(200);
+        })
+        
+    }
+    
+}).directive("phonelist",function (){
+    return function (scope,element,attrs){
+        $(element).bind("click",function (){
+            if($(".phone-menu").css("display")=="block"){
+                $(".phone-menu").fadeOut();
+                
+            }else{
+                $(".phone-menu").show();
+            }
+        })   
+    }
 })
+
 tpk.controller("tpk_all", function ($scope, $http) {
     $("#tpk_show_modal").hide();
     var a = Array();
