@@ -1,12 +1,20 @@
 
-@media (min-width: 768px){
+@media (max-width: 1200px){
     #banner{
         width:100%;
+    }
+    .tpk-index-chose-icon{
+        width:100%;
+        
     }
 }
 @media (min-width: 1200px){
     #banner{
         width:1170px;
+    }
+     .tpk-index-chose-icon{
+        width:200px;
+        
     }
 }
 body,html{
@@ -62,13 +70,12 @@ body,html{
 .w100{
     width:100%;
     clear:both;
-    height: 320px;
     background-color:burlywood;
     color:black;
     
 }
 .tpk-btn{
-    width:130px;
+    width:100%;
     
 }
 .banner-text{
@@ -77,7 +84,7 @@ body,html{
 }
 .btn-choose>div{
     padding-top:20px;
-    padding-bottom: 60px;
+/*    padding-bottom: 60px;*/
     color:dimgrey;
    
     

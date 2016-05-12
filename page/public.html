@@ -1,13 +1,13 @@
 <div class='row tpk-container' id='tpk_public' ng-controller="tpk_public">
+  <div>
+  </div>
    <div class='p-sub-menu' >
        <ul class='line-menu'>
           <li ng-repeat='submenu in sub_menu' ng-class="{true: 'circle-active', false: ''}[submenu.isActive]"><div class='circle '><div class='circle-w'></div></div><div class='text'><p><a ng-href="{{submenu.url}}">{{submenu.name}}</a></p></div></li>
        </ul>
    </div>
-    <div class='col-xs-10 col-xs-offset-2'>
+    <div class='tpk-public'>
         <div class="col-xs-12" ng-include="func_html">
-            
-            
         </div>
         <div>{{up}}{{next}}</div>
     </div>

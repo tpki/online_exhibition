@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="keywords" content="執行有愛,公益無礙,行政執行署,線上檔案黨,法務部">
-    <meta name=”viewport” content='width=device-width; initial-scale=1.0'>
+    <meta name='viewport' content='width=device-width; initial-scale=1.0'>
     <link rel="shortcut icon" href="image/tpk_sm.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
@@ -29,17 +29,17 @@
 </head>
 
 <script id="_waui2g">
-    var _wau = _wau || [];
-    _wau.push(["tab", "9kcx9vuh41oo", "i2g", "right-lower"]);
-    (function () {
-        var s = document.createElement("script");
-        s.async = true;
-        s.src = "http://widgets.amung.us/tab.js";
-        document.getElementsByTagName("head")[0].appendChild(s);
-    })();
-    if (navigator.userAgent.match("MSIE")) {
-        alert("建議使用Chrome、Firefox、Safari進行瀏覽");
-    }
+//    var _wau = _wau || [];
+//    _wau.push(["tab", "9kcx9vuh41oo", "i2g", "right-lower"]);
+//    (function () {
+//        var s = document.createElement("script");
+//        s.async = true;
+//        s.src = "http://widgets.amung.us/tab.js";
+//        document.getElementsByTagName("head")[0].appendChild(s);
+//    })();
+//    if (navigator.userAgent.match("MSIE")) {
+//        alert("建議使用Chrome、Firefox、Safari進行瀏覽");
+//    }
 </script>
 
 <body ng-app="tpk" ng-controller="tpk_all" id="ng-app" class="ng-app">
@@ -73,8 +73,8 @@
                     </div>
                     <div class='menu-box '>
                         <div class='tpk-title'>
-                            <h3 class='col-xs-4 text-left'>法務部行政執行署</h3>
-                            <ul class='col-xs-4 col-xs-offset-4 list-inline '>
+                            <h3 class='tpk-title-head text-left left'>法務部行政執行署</h3>
+                            <ul class='tpk-title-a list-inline right'>
                                 <li><a href="https://www.facebook.com/%E6%B3%95%E5%8B%99%E9%83%A8%E8%A1%8C%E6%94%BF%E5%9F%B7%E8%A1%8C%E7%BD%B2-1392910267613444/">FaceBook</a></li>
                                 <li>
                                     <a href="http://www.tpk.moj.gov.tw/mp030.html">法務部行政執行署</a></li>
@@ -116,21 +116,25 @@
         </div>
     </div>
     <div class='box-shadow w100'>
-        <div class="tpk-container">
+        <div class="tpk-container row">
             <div class="col-xs-12 btn-choose">
                 <div class="col-xs-4  col-xs-offset-2 text-center" showhover>
-                    <img src="image/show.png" width="200px" imageonload ng-click="to_show_list()">
+                    <img src="image/show.png" class='tpk-index-chose-icon' imageonload ng-click="to_show_list()">
                     <p>實體檔案展詳細資訊</p>
+<!--
                     <div class='col-xs-12 text-center'>
                         <button class='btn btn-default tpk-btn' ng-click="to_show_list()">現場展覽</button>
                     </div>
+-->
                 </div>
                 <div class="col-xs-4 col-xs-offset-1 text-center" onlinehover>
-                    <img width="200px" src="image/online_hover.png" imageonload ng-click="to_online_list()">
+                    <img  src="image/online_hover.png" class='tpk-index-chose-icon' imageonload ng-click="to_online_list()">
                     <p>線上檔案展詳細資訊</p>
+<!--
                     <div class='col-xs-12 text-center'>
-                        <button class='btn btn-default tpk-btn' ng-click="to_online_list()"> 線上展覽</button>
+                        <div class='btn btn-default tpk-btn' ng-click="to_online_list()"> 線上展覽</div>
                     </div>
+-->
                 </div>
             </div>
         </div>
