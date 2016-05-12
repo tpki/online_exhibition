@@ -7,7 +7,11 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="shortcut icon" href="image/tpk_sm.png">
+    <!--[if lte IE 8]>
 
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js"></script>
+
+     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-sanitize.js"></script>
@@ -31,13 +35,19 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="library/lightimage/lightcase.css">
 </head>
-<script id="_waui2g">var _wau = _wau || [];
-_wau.push(["tab", "9kcx9vuh41oo", "i2g", "right-lower"]);
-(function() {var s=document.createElement("script"); s.async=true;
-s.src="http://widgets.amung.us/tab.js";
-document.getElementsByTagName("head")[0].appendChild(s);
-})();</script>
-<body ng-app="tpk" ng-controller="tpk_all" keyupclose>
+
+<script id="_waui2g">
+    var _wau = _wau || [];
+    _wau.push(["tab", "9kcx9vuh41oo", "i2g", "right-lower"]);
+    (function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "http://widgets.amung.us/tab.js";
+        document.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
+
+<body ng-app="tpk" ng-controller="tpk_all" keyupclose id="ng-app" class="ng-app">
     <div class="se-pre-con">
         <div class='dialog-back'></div>
         <div class='load-icon'>
@@ -83,7 +93,7 @@ document.getElementsByTagName("head")[0].appendChild(s);
         <div class="ss-menu">
             <div class='cation'>
                 <div class="row ">
-                   <div style="width:10%;float:left;height:1px"></div>
+                    <div style="width:10%;float:left;height:1px"></div>
                     <div class=" sub-m-list">
                         <div ng-repeat="menu in tpk_menu" class='sub-m'>
                             <ul class="list-unstyled">
