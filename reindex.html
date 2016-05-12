@@ -7,9 +7,10 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="shortcut icon" href="image/tpk_sm.png">
-    <!--[if lte IE 8]>
+   <!--[if lte IE 8]>
 
-     <script src="http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2pre/html5shiv.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
 
      <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -34,6 +35,18 @@
     <link rel="stylesheet" href="css/tpk.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="library/lightimage/lightcase.css">
+    <!--[if lte IE 8]>
+        <script>
+          document.createElement('ng-include');
+          document.createElement('ng-pluralize');
+          document.createElement('ng-view');
+ 
+          // Optionally these for CSS
+          document.createElement('ng:include');
+          document.createElement('ng:pluralize');
+          document.createElement('ng:view');
+        </script>
+      <![endif]-->
 </head>
 
 <script id="_waui2g">

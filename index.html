@@ -8,7 +8,8 @@
     <meta name="keywords" content="執行有愛,公益無礙,行政執行署,線上檔案黨,法務部">
     <!--[if lte IE 8]>
 
-     <script src="http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2pre/html5shiv.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
 
      <![endif]-->
     <link rel="shortcut icon" href="image/tpk_sm.png">
@@ -28,7 +29,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/tpk-index.css">
     <link rel="stylesheet" href="css/menu.css">
-
+    <!--[if lte IE 8]>
+        <script>
+          document.createElement('ng-include');
+          document.createElement('ng-pluralize');
+          document.createElement('ng-view');
+ 
+          // Optionally these for CSS
+          document.createElement('ng:include');
+          document.createElement('ng:pluralize');
+          document.createElement('ng:view');
+        </script>
+      <![endif]-->
 </head>
 
 <script id="_waui2g">
@@ -130,6 +142,7 @@
                 <!--============================================-->
             </div>
             <div id='online-exhibition' ng-controller='index_list'>
+
                 <blockquote class='bs-blockquote-color'>
                     <h3>線上展覽目錄</h3>
                 </blockquote>
