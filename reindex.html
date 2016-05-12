@@ -75,6 +75,20 @@
             </div>
         </div>
     </div>
+    <div class='mobile-tpk  phone-list'  >
+        <div ><img src="image/phone-list.png "phonelist class='right' alt="" width="50px"></div>
+        <div class='phone-menu'>
+            <ul class="menu-list ">
+                <li ng-repeat="menu in tpk_menu" phonemenuclick><a href="{{menu.link}}">{{menu.name}}</a>
+                    <ul class='phone-s-menu'>
+                       <li><div menuup>＜———</div></li>
+                        <li ng-repeat='s_menu in menu.tpk_smenu'><a href="{{s_menu.link}}">{{s_menu.name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
     <div id="header" menuhover>
         <!--   -->
         <div class="col-xs-12" id='main-menu' style="background: #FFF;">
@@ -92,7 +106,7 @@
                                     <a href="http://www.tpk.moj.gov.tw/mp030.html">法務部行政執行署</a></li>
                             </ul>
                         </div>
-                        <div class="tpk-menu text-right ">
+                        <div class="tpk-menu text-right tpk-bx">
                             <ul class="menu-list list-inline">
                                 <li ng-repeat="menu in tpk_menu" menuonhover><a href="{{menu.link}}">{{menu.name}}</a></li>
                             </ul>
@@ -103,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="ss-menu">
+        <div class="ss-menu tpk-bx">
             <div class='cation'>
                 <div class="row ">
                     <div style="width:10%;float:left;height:1px"></div>
