@@ -11,10 +11,7 @@
         width: 100px;
         font-size: 13px;
     }
-    .sub-list>li:last-child,  .menu-list>li:last-child{
-        display: none;
-        
-    }
+   
     .mobile-tpk{
         display: block;
     }
@@ -45,9 +42,7 @@
         width: 130px;
          font-size: 18px;
     }
-    .sub-list>li:last-child,  .menu-list>li:last-child{
-        display: block; 
-    }
+  
     .mobile-tpk{
         display: none;
     }
