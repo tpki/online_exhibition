@@ -1,15 +1,13 @@
 <div class='row ' ng-controller="tpk_photo">
   <div class="col-xs-12" style='padding:20px;'>
-  
    <div class='sub-menu' ng-controller="tpk-photo-menu" ng-show='this.show'>
-      <div class='photo-top'>相簿</div>
-       <ul class='line-menu'>
+      <div class='photo-top' photohover>相簿</div>
+       <ul class='line-menu photo-menu'>
           <li ng-repeat='submenu in sub_menu' ng-class="{true: 'circle-active', false: ''}[submenu.isActive]"><div class='circle '><div class='circle-w'></div></div><div class='text'><p><a ng-href="?upg={{upg}}&context={{context}}&sub={{submenu.sub}}">{{submenu.name}}</a></p></div></li>
        </ul>
    </div>
-    <div class="col-xs-3 tpk_photo " ng-repeat="photo in photo" ng-mouseenter="text_up()" ng-mouseleave="text_leave()" ng-click="photo_f(photo.sub,photo.image,photo.context)" style="display:{{photo.hide}}">
+    <div class="col-lg-3 col-xs-6 tpk_photo " ng-repeat="photo in photo" ng-mouseenter="text_up()" ng-mouseleave="text_leave()" ng-click="photo_f(photo.sub,photo.image,photo.context)" style="display:{{photo.hide}}">
         <div class=' col-xs-12'>
-            
             <img ng-src="image/{{photo.image}}" imageonload class='img-thumbnail photo-image hide'  name='image' alt='{{photo.name}}'>
         </div>
         <div class="photo-text col-xs-10 {{this.active}}" ><p class='text-center'>{{photo.name}}</p></div>

@@ -32,7 +32,7 @@ tpk.directive('imageonload', function () {
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
-            
+
             if (window.innerWidth > 1200) {
                 element.hover(function () {
                         $(".ss-menu").slideDown(200).css("top", $("#main-menu").height());
@@ -71,11 +71,11 @@ tpk.directive('imageonload', function () {
                     return true;
                 } else if (type == 'in_video') {
                     //$("#tpk_show_modal").show();
-                     $("#tpk_show_modal").modal("show");
+                    $("#tpk_show_modal").modal("show");
                     var context = "<video width='100%' controls><source src='" + element.attr("href") + "' type='video/mp4'>Your browser does not support HTML5 video.</video>"
                     $(".show_location").html(context);
                 } else if (type == "youtube") {
-                   $("#tpk_show_modal").modal("show");
+                    $("#tpk_show_modal").modal("show");
                     var context = "<iframe width='100%' height='600px' src='" + element.attr("href") + "' frameborder='0' allowfullscreen></iframe>"
                     $(".show_location").html(context);
 
@@ -109,12 +109,12 @@ tpk.directive('imageonload', function () {
                 var img = new Image();
                 img.src = aa;
 
-                 $("#tpk_show_modal").modal("show")
-                   $("#tpk_show_modal").find(".show_location").load("page/imageshow2.html", function () {
+                $("#tpk_show_modal").modal("show")
+                $("#tpk_show_modal").find(".show_location").load("page/imageshow2.html", function () {
                     var width, height;
-                    var window_width=window.innerWidth*0.8;
-                    var window_height=window.innerHeight*0.8;
-                       console.log(window_width);
+                    var window_width = window.innerWidth * 0.8;
+                    var window_height = window.innerHeight * 0.8;
+                    console.log(window_width);
                     if (img.width > img.height) {
                         if (img.width > window_width) {
                             width = window_width;
@@ -216,40 +216,58 @@ tpk.directive('imageonload', function () {
     }
 
 
-}).directive("phonemenuclick",function (){
-    return function (scope,element,attrs){
-        $(element).bind("click",function (){
-            if(scope.menu.type=='menu'||scope.menu.type=='list'){
-                $(this).find("ul.phone-s-menu").show();   
+}).directive("phonemenuclick", function () {
+    return function (scope, element, attrs) {
+        $(element).bind("click", function () {
+            if (scope.menu.type == 'menu' || scope.menu.type == 'list') {
+                $(this).find("ul.phone-s-menu").show();
             }
-            })
+        })
     }
-}).directive("menuup",function (){
-    return function (scope,element,attrs){
-        $(element).bind("click",function (){
+}).directive("menuup", function () {
+    return function (scope, element, attrs) {
+        $(element).bind("click", function () {
             $(this).parents("ul.phone-s-menu").fadeOut(200);
         })
-        
+
     }
-    
-}).directive("phonelist",function (){
-    return function (scope,element,attrs){
-        $(element).bind("click",function (){
-            if($(".phone-menu").css("display")=="block"){
+
+}).directive("phonelist", function () {
+    return function (scope, element, attrs) {
+        $(element).bind("click", function () {
+            if ($(".phone-menu").css("display") == "block") {
                 $(".phone-menu").fadeOut();
-                
-            }else{
+
+            } else {
                 $(".phone-menu").show();
             }
-        })   
+        })
     }
+}).directive("photohover", function () {
+
+    return function (scope, element, attrs) {
+        if (window.innerWidth < 1200) {
+            $(element).bind("click", function () {
+                if ($(this).next(".photo-menu").css("display") == "none") {
+                    $(this).next(".photo-menu").show();
+                } else {
+                    $(this).next(".photo-menu").fadeOut();
+
+                }
+
+            })
+
+        }
+
+    }
+
 })
-$(function (){
-$('#tpk_show_modal').on('hidden.bs.modal', function (e) {
-  $("#tpk_show_modal").find(".show_location").html("");
-})
-    
-    
+$(function () {
+    $('#tpk_show_modal').on('hidden.bs.modal', function (e) {
+        $("#tpk_show_modal").find(".show_location").html("");
+    })
+
+
 })
 tpk.controller("tpk_all", function ($scope, $http) {
     $("#tpk_show_modal").hide();
@@ -505,7 +523,7 @@ tpk.controller("tpk_photo", function ($scope, $http, $location) {
 
 
             $("#tpk_show_modal").modal("show")
-                $("#tpk_show_modal").find(".show_location").load("page/imageshow.html", function () {
+            $("#tpk_show_modal").find(".show_location").load("page/imageshow.html", function () {
                 var width, height;
                 if (img.width > img.height) {
                     if (img.width > 900) {

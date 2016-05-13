@@ -28,6 +28,12 @@
        clear: both;
        width: 100%;
     }
+    .photo-menu{
+        display: none;
+        position: absolute;
+        z-index: 999;
+        background-color:aliceblue;
+    }
 }
 
 @media (min-width: 1200px){
