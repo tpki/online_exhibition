@@ -3,15 +3,16 @@
     <div ng-show="{{show}}" class='text-left col-xs-12'>
         <h4><a href="reindex.html?upg=video&context=video&sub=">回上一頁</a></h4>
     </div>
-    <div class="col-xs-10 col-xs-offset-1" style="border: 2px solid #000;margin-top:20px;" ng-repeat="vi in vidoe">
+    <div class="col-lg-10 col-lg-offset-1 col-xs-12" style="border: 2px solid #000;margin-top:20px;" ng-repeat="vi in vidoe">
         <div class="row" style="padding:10px;">
-            <div class='col-xs-3'>
+            <div class='col-xs-12 col-lg-3'>
                 <a ng-href="{{vi.link}}" data-type="{{vi.type}}" vidoelink style="border:0">
                     <img src="image/folder.png" width='80px' style='position: absolute;bottom:0;right:16px;' ng-show="{{vi.folder}}" >
                     <div class='text-right'style='position: absolute;bottom:5px;right:25px; width:150px;color:#FFF;opacity:0.5' ng-hide="{{vi.folder}}">{{vi.type_n}}</div>
                     <img src="{{vi.image}}" class='img-thumbnail' width="100%" imageerror></a>
             </div>
-            <div class='col-xs-offset-1 col-xs-8'>
+            <div class='col-lg-offset-1 col-lg-8 col-xs-12'>
+               <div class="row">
                 <blockquote>
                     <p>{{vi.title}}</p>
                     <footer>{{vi.type_n}}</footer>
@@ -20,6 +21,7 @@
                     {{vi.context}}
                 </p>
                 <div class='col-xs-12 text-right'><a ng-href="{{vi.link}}" data-type="{{vi.type}}" vidoelink>Link</a></div>
+            </div>
             </div>
         </div>
     </div>

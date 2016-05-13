@@ -11,6 +11,10 @@
         width: 130px;
         float: left;
     }
+    .sub-menu {
+       
+        width: 100%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -36,9 +40,14 @@
         display: block;
         z-index: 0;
     }
+    .sub-menu {
+       
+        width: 170px;
+    }
 }
 
-html,body {
+html,
+body {
     margin: 0;
     padding: 0;
     left: 0;
@@ -129,7 +138,7 @@ ul.line-menu>li>.text {
 .sub-menu {
     position: relative;
     float: left;
-    width: 170px;
+   
 }
 
 #tpk_body {
