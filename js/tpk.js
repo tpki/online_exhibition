@@ -244,7 +244,13 @@ tpk.directive('imageonload', function () {
         })   
     }
 })
-
+$(function (){
+$('#tpk_show_modal').on('hidden.bs.modal', function (e) {
+  $("#tpk_show_modal").find(".show_location").html("");
+})
+    
+    
+})
 tpk.controller("tpk_all", function ($scope, $http) {
     $("#tpk_show_modal").hide();
     var a = Array();
