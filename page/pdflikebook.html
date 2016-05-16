@@ -89,12 +89,16 @@
             restrict: "A",
             link: function (scope, element, attrs) {
                 if (scope.$last) {
+                    var w_height=window.innerHeight;
+                    var w_width=window.innerWidth;
+                    var width=0,height=w_height-50;
+                    
                     $('.flipbook').turn({
                         // Width
                         width: "1100",
                         autoCenter: true,
                         // Height
-                        height: 780,
+                        height:height ,
                         // Elevation
                         elevation: 50,
                         // Enable gradients
