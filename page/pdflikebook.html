@@ -92,11 +92,12 @@
                 if (scope.$last) {
                     var w_height=window.innerHeight;
                     var w_width=window.innerWidth;
-                    var width=0,height=w_height;
-                    width=w_width*(height/1000)-50;
+                    var widtha=0,height=w_height;
+                    widtha=w_width*(height/1000)-50;
+                    console.log(widtha);
                     $('.flipbook').turn({
                         // Width
-                        width: width,
+                        width: (widtha),
                         autoCenter: true,
                         // Height
                         height:height ,
@@ -109,7 +110,6 @@
                         display: 'double',
                         when: {
                             missing: function (event, pages) {
-                                console.log(pages);
                             }
                         }
                     });
@@ -122,7 +122,8 @@
                     });
                     var width = $(window).width();
                     //console.log(width);
-                    $(".flipbook-viewport>.container").css("margin-left", (width - 1100) / 2);
+                    
+                    $(".flipbook-viewport>.container").css("margin-left", (width - (widtha)) / 2);
                 }
 
 
