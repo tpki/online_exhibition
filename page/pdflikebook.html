@@ -33,6 +33,7 @@
         /*	overflow:hidden;*/
         width: 100%;
         height: 100%;
+        margin-top:10px;
     }
     
     .flipbook-viewport .container {
@@ -91,11 +92,11 @@
                 if (scope.$last) {
                     var w_height=window.innerHeight;
                     var w_width=window.innerWidth;
-                    var width=0,height=w_height-50;
-                    
+                    var width=0,height=w_height;
+                    width=w_width*(height/1000)-50;
                     $('.flipbook').turn({
                         // Width
-                        width: "1100",
+                        width: width,
                         autoCenter: true,
                         // Height
                         height:height ,
