@@ -116,18 +116,18 @@ tpk.directive('imageonload', function () {
                     if (img.width >= img.height) {
                         if (img.width > window_width) {
                             width = window_width;
-                            height=img.height*(window_width/img.width);
+                            height = img.height * (window_width / img.width);
                         } else {
                             width = img.width;
-                            height=img.height;
+                            height = img.height;
                         }
                     } else {
                         if (img.height > window_height) {
                             height = window_height;
-                            width=img.width*(window_height/img.height);
+                            width = img.width * (window_height / img.height);
                         } else {
                             height = img.height;
-                            width=img.width;
+                            width = img.width;
                         }
                     }
                     $("#show_image_c").attr({
@@ -137,17 +137,19 @@ tpk.directive('imageonload', function () {
                     });
                     $("#big_image").attr("href", aa);
                     console.log(width);
-                    $('.jqzoom').jqzoom({
-                        zoomType: 'standard',
-                        lens: true,
-                        xOffset: 40,
-                        yOffset: 80,
-                        position: "left",
-                        preloadImages: false,
-                        alwaysOn: false,
-                        zommWidth: 400,
-                        zoomHeight: 400
-                    });
+                    if (!navigator.userAgent.match("MSIE")) {
+                        $('.jqzoom').jqzoom({
+                            zoomType: 'standard',
+                            lens: true,
+                            xOffset: 40,
+                            yOffset: 80,
+                            position: "left",
+                            preloadImages: false,
+                            alwaysOn: false,
+                            zommWidth: 400,
+                            zoomHeight: 400
+                        });
+                    }
                 })
                 return false;
             })
