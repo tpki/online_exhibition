@@ -141,9 +141,9 @@ tpk.directive('imageonload', function () {
                         $('.jqzoom').jqzoom({
                             zoomType: 'standard',
                             lens: true,
-                            xOffset: 40,
+                            xOffset: width,
                             yOffset: 80,
-                            position: "left",
+                         
                             preloadImages: false,
                             alwaysOn: false,
                             zommWidth: 400,
