@@ -108,27 +108,27 @@ tpk.directive('imageonload', function () {
                 var aa = $(this).attr("src");
                 var img = new Image();
                 img.src = aa;
-
                 $("#tpk_show_modal").modal("show")
                 $("#tpk_show_modal").find(".show_location").load("page/imageshow2.html", function () {
                     var width, height;
                     var window_width = window.innerWidth * 0.8;
                     var window_height = window.innerHeight * 0.8;
-                    console.log(window_width);
-                    if (img.width > img.height) {
+                    if (img.width >= img.height) {
                         if (img.width > window_width) {
                             width = window_width;
+                            height=img.height*(window_width/img.width);
                         } else {
-                            width = img.width
+                            width = img.width;
+                            height=img.height;
                         }
                     } else {
                         if (img.height > window_height) {
                             height = window_height;
+                            width=img.width*(window_height/img.height);
                         } else {
-                            height = img.height
-
+                            height = img.height;
+                            width=img.width;
                         }
-
                     }
                     $("#show_image_c").attr({
                         "src": aa,
@@ -136,6 +136,18 @@ tpk.directive('imageonload', function () {
                         height: height
                     });
                     $("#big_image").attr("href", aa);
+                    console.log(width);
+                    $('.jqzoom').jqzoom({
+                        zoomType: 'standard',
+                        lens: true,
+                        xOffset: 40,
+                        yOffset: 80,
+                        position: "left",
+                        preloadImages: false,
+                        alwaysOn: false,
+                        zommWidth: 400,
+                        zoomHeight: 400
+                    });
                 })
                 return false;
             })
@@ -622,5 +634,17 @@ tpk.controller("tpk_leader", function ($scope, $http) {
         $scope.upg = usearch['upg'];
         $scope.context = usearch['context'];
     });
+
+})
+tpk.controller("exhibition", function () {
+    $("#list-exhibition-order>li").each(function (i, e) {
+        $(this).click(function () {
+            $(".exhibition-img").attr("src", "image/exhibition/p" + (i + 1) + ".jpg");
+
+        })
+
+
+    })
+
 
 })
